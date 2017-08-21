@@ -1,0 +1,143 @@
+<resources>
+    <string name="app_name">Study</string>
+    <string name="refelect_reflect">通过一个对象获得完整的包名和类名</string>
+    <string name="refelect_init">实例化Class类对象</string>
+    <string name="refelect_super_class_interface">获取一个对象的父类与实现的接口</string>
+    <string name="refelect_object">通过反射机制实例化一个类的对象</string>
+    <string name="refelect_attribute">获取某个类的全部属性</string>
+    <string name="refelect_all_method">获取某个类的全部方法</string>
+    <string name="refelect_one_method">通过反射机制调用某个类的方法</string>
+    <string name="refelect_one_attribute">通过反射机制操作某个类的属性</string>
+    <string name="refelect_proxy">反射机制的动态代理</string>
+    <string name="refelect_int_list_put_string">在泛型为Integer的ArrayList中存放一个String类型的对象</string>
+    <string name="refelect_update_array">通过反射取得并修改数组的信息</string>
+    <string name="refelect_update_array_size">通过反射机制修改数组的大小</string>
+    <string name="refelect_fruit_factory">将反射机制应用于工厂模式</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="genericity_get_animal">动物信息——dog</string>
+    <string name="genericity_get_two_tuple_string_int">单元--字符串、整型</string>
+    <string name="genericity_get_linked_stack">堆栈类</string>
+    <string name="genericity_get_random_list">RandomList</string>
+    <string name="genericity_get_coffee">泛型接口--coffee</string>
+    <string name="genericity_get_fibonacci">泛型接口--fibonacci</string>
+    <string name="genericity_get_fibonacci_int">泛型接口--fibonacci--int</string>
+    <string name="genericity_method">泛型方法</string>
+    <string name="genericity_method_new">泛型方法---new</string>
+    <string name="genericity_method_varargs">泛型方法---可变参数</string>
+    <string name="genericity_method_generator">泛型方法---generator</string>
+    <string name="genericity_method_generator_base">泛型方法---generator---base</string>
+    <string name="genericity_method_tuple">泛型方法---简化二元组tuple</string>
+    <string name="genericity_method_enum">泛型方法---枚举</string>
+    <string name="genericity_method_enum_2">泛型方法---枚举——2</string>
+    <string name="genericity_method_inner_class">泛型方法---内部类</string>
+    <string name="genericity_method_complex_model">泛型方法---复杂模型</string>
+    <string name="data_structure_string_upcase">数据结构--String--upcase</string>
+    <string name="data_structure_string_for_circle_compare">数据结构--String--for循环比较</string>
+    <string name="data_structure_string_memory_address">数据结构--String--无意识的递归--内存地址</string>
+    <string name="data_structure_string_format_output">数据结构--String-格式输出</string>
+    <string name="data_structure_string_format_output_formatter">数据结构--String-格式输出--formatter</string>
+    <string name="data_structure_string_format_output_specifier">数据结构--String-格式输出--格式化输出符</string>
+    <string name="data_structure_string_format_output_hex">数据结构--String-格式输出--16进制</string>
+    <string name="data_structure_set_student">数据结构--set--student</string>
+
+
+    <string name="data_structure_map_tree_table">数据结构--Map--TreeTable</string>
+
+    <string name="pattern_facory_standard_phone">工厂模式-标准工厂-phone</string>
+    <string name="pattern_facory_simple_phone">工厂模式-简单工厂-phone</string>
+    <string name="pattern_observer_coder">观察者模式-coder</string>
+    <string name="pattern_observer_exit">观察者模式-exit</string>
+    <string name="pattern_proxy_searcher_key_hint">请输入的关键字</string>
+    <string name="pattern_proxy_searcher_do_search">搜索</string>
+    <string name="pattern_proxy_searcher_do_search_not_null">输入的关键字不能为空！</string>
+    <string name="pattern_proxy_searcher_do_search_result"> 搜索结果：</string>
+
+    <string name="thread_extends_ticket">线程-extends-ticket</string>
+    <string name="thread_implements_ticket">线程-implements-ticket-线程间间资源不共享</string>
+    <string name="thread_implements_ticket_2">线程-implements-ticket-线程间间资源共享</string>
+    <string name="thread_extends_implements_test">线程-extends-implements-test</string>
+    <string name="thread_callable_test">线程-callable-test</string>
+    <string name="thread_stop">线程-stop</string>
+    <string name="thread_volatile">线程-volatile</string>
+    <string name="thread_pool">线程-线程池</string>
+
+    <string name="download_hello">Hello World, MainActivity!</string>
+    <string name="download_path">下载路径</string>
+    <string name="download_button">下载</string>
+    <string name="download_sdcard_error">SDCard不存在或者写保护</string>
+    <string name="download_success">下载完成</string>
+    <string name="download_error">下载失败</string>
+
+    <string name="widget_radio_button_main">主页</string>
+    <string name="widget_radio_button_home">互动</string>
+
+    <string name="static_method_hello_world">静态方法测试--hello world</string>
+    <string name="static_method_child">静态方法测试--child</string>
+
+
+    <string name="data_algorithm_insert_sort_1">数据算法--插入算法--1</string>
+    <string name="data_algorithm_bubble_sort_1">数据算法--冒泡算法--1</string>
+    <string name="data_algorithm_bubble_sort_2">数据算法--冒泡算法--2</string>
+    <string name="data_algorithm_quick_sort">数据算法--快速算法</string>
+    <string name="data_algorithm_selection_sort">数据算法--选择算法</string>
+    <string name="data_algorithm_shell_sort">数据算法--希尔算法</string>
+    <string name="data_algorithm_sequential_sort">数据算法--顺序查找算法</string>
+
+    <string name="upward_transition_1">向上转型</string>
+
+    <string name="encode_hint">输入需要加密的内容</string>
+    <string name="encode_result_encode">加密的结果：</string>
+    <string name="encode_result_decode">解密的结果：</string>
+    <string name="encode_encode_aes">aes加密</string>
+    <string name="encode_decode_aes">aes解密</string>
+    <string name="encode_encode_rsa">rsa加密</string>
+    <string name="encode_decode_rsa">rsa解密</string>
+    <string name="encode_encode_des3">des3加密</string>
+    <string name="encode_decode_des3">des3解密</string>
+    <string name="encode_encode_md5">md5加密</string>
+    <string name="encode_decode_md5">md5解密</string>
+
+    <string name="fast_json_student">FastJson-Student</string>
+    <string name="fast_json_teacher">FastJson-Teacher</string>
+
+    <string name="crash_report_test">crash report test</string>
+
+    <string name="notification_custom">显示自定义通知栏</string>
+    <string name="notification_custom_button">显示带按钮自定义通知栏</string>
+
+    <string name="notification_native_show">显示通知栏</string>
+    <string name="notification_native_show_big_style">显示大视图风格通知栏（4.1以上才生效）</string>
+    <string name="notification_native_show_permanent">显示常驻通知栏</string>
+    <string name="notification_native_show_intent_activity">显示通知，点击跳转到指定Activity</string>
+    <string name="notification_native_show_intent_app">显示通知，点击打开APK</string>
+    <string name="notification_native_clear">清除指定通知</string>
+    <string name="notification_native_clear_all">清除所有通知</string>
+
+    <string name="notification_progress_default">显示带默认样式进度条通知栏</string>
+    <string name="notification_progress_default_unsure">显示带（不确定）默认样式进度条通知栏</string>
+    <string name="notification_progress_custom">显示自定义 带进度条的通知栏</string>
+    <string name="notification_progress_download_start">开始下载</string>
+    <string name="notification_progress_download_pause">暂停下载</string>
+    <string name="notification_progress_download_cancel">取消下载进度</string>
+    <string name="notification_progress_download_wait">等待下载..</string>
+
+
+    <string name="public_dialog_loading">加载中...</string>
+    <string name="public_network_no">网络异常，请检查网络设置</string>
+
+
+    <string name="okhttp_get_ad">okhttp  getAd</string>
+
+    <string name="okhttp2_login">okhttp2 login</string>
+    <string name="okhttp2_network_no">网络异常，请检查网络设置</string>
+    <string name="okhttp2_update">okhttp2_update</string>
+
+    <string name="rv_appinfo_name">应用</string>
+
+    <string name="handler_thread_main">handler 主线程</string>
+    <string name="handler_thread_child">handler 子线程</string>
+    <string name="handler_thread_h_post">handler post</string>
+    <string name="handler_thread_view_post">view post</string>
+    <string name="handler_thread_main_ui">handler mainUI</string>
+    <string name="handler_thread_msg">--msg</string>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.xm.study.widget.WidgetActivity">
+
+
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.xm.study.widget.widget.MyRadioButton
+            android:id="@+id/rb_main"
+            style="@style/MainCheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/main_icon_selector"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="@string/widget_radio_button_main" />
+
+        <com.xm.study.widget.widget.MyRadioButton
+            android:id="@+id/rb_resource"
+            style="@style/MainCheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_icon_selector"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="@string/widget_radio_button_home" />
+    </RadioGroup>
+
+
+</RelativeLayout>
