@@ -78,6 +78,7 @@ public class HandlerActivity extends BaseActivity implements IHandlerView {
     @Override
     public void childDone(String str) {
 //        tvChild.setText(str);//子线程不能更新ui
+
         LogUtils.e(TAG,"childDone="+str);
     }
 
