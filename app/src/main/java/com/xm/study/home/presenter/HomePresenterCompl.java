@@ -13,6 +13,7 @@ import com.xm.study.cardview.CardViewActivity;
 import com.xm.study.crashreport.CrashReportActivity;
 import com.xm.study.dataalgorithm.DataAlgorithmActivity;
 import com.xm.study.datastructure.DataStructureActivity;
+import com.xm.study.dynamic1.DynamicActivity;
 import com.xm.study.encode.EncodeActivity;
 import com.xm.study.downlaod.DownloadActivity;
 import com.xm.study.easechat.login.ECLoginActivity;
@@ -70,6 +71,7 @@ public class HomePresenterCompl implements IHomePresenter {
         mActivityHolder.addActivity("ObserverExitActivity", ObserverExitActivity.class);
         mActivityHolder.addActivity("ProxySearcherActivity", ProxySearcherActivity.class);
         mActivityHolder.addActivity("HandlerActivity", HandlerActivity.class);
+        mActivityHolder.addActivity("DynamicActivity", DynamicActivity.class);
     }
 
     public HomePresenterCompl(Context context, IHomeView iHomeView) {

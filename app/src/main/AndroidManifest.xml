@@ -149,7 +149,8 @@
         <activity android:name=".pattern.observer.order.ObserverOrderActivity" />
         <activity android:name=".pattern.proxy.ProxySearcherActivity" />
         <activity android:name=".recyclerview.recyclerview.RecycleViewActivity" />
-        <activity android:name=".handler.HandlerActivity"></activity>
+        <activity android:name=".handler.HandlerActivity" />
+        <activity android:name=".dynamic1.DynamicActivity"></activity>
     </application>
 
 </manifest>

@@ -42,8 +42,10 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //    compile 'com.jakewharton:butterknife:8.5.1'
     //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     compile project(path: ':PublicUtils')
-
 
     compile 'com.android.support:design:22.2.1'
     compile 'com.jakewharton:butterknife:7.0.0'
@@ -56,4 +58,25 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.tencent.bugly:crashreport:2.6.0'
     compile 'com.tencent.bugly:nativecrashreport:3.2.0'
+    androidTestCompile 'junit:junit:4.12'
 }
+
+//删除dynamic.jar包任务
+task clearJar(type: Delete) {
+    delete 'libs/dynamic.jar'
+}
+
+//打包任务
+task makeJar(type: org.gradle.api.tasks.bundling.Jar) {
+    //指定生成的jar名
+    baseName 'dynamic'
+    //从哪里打包class文件
+    from('build/intermediates/classes/debug/com/xm/study/dynamic/')
+    //打包到jar后的目录结构
+    into('com/xm/study/dynamic/')
+    //去掉不需要打包的目录和文件
+    exclude('test/', 'Dynamic.class', 'BuildConfig.class', 'R.class')
+    //去掉R$开头的文件
+    exclude { it.name.startsWith('R$'); }
+}
+makeJar.dependsOn(clearJar, build)

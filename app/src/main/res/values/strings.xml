@@ -140,4 +140,6 @@
     <string name="handler_thread_view_post">view post</string>
     <string name="handler_thread_main_ui">handler mainUI</string>
     <string name="handler_thread_msg">--msg</string>
+
+    <string name="dynamic_load">点击加载dex文件</string>
 </resources>
