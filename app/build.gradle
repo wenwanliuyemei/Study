@@ -58,6 +58,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.tencent.bugly:crashreport:2.6.0'
     compile 'com.tencent.bugly:nativecrashreport:3.2.0'
+    compile 'com.alipay.euler:andfix:0.4.0@aar'
     androidTestCompile 'junit:junit:4.12'
 }
 

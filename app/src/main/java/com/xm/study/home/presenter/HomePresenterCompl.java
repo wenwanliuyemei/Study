@@ -18,6 +18,7 @@ import com.xm.study.encode.EncodeActivity;
 import com.xm.study.downlaod.DownloadActivity;
 import com.xm.study.easechat.login.ECLoginActivity;
 import com.xm.study.fastjson.FastJsonActivity;
+import com.xm.study.fix.andfix.AndFixActivity;
 import com.xm.study.genericity.GenericityActivity;
 import com.xm.study.handler.HandlerActivity;
 import com.xm.study.home.utils.ActivityHolder;
@@ -72,6 +73,7 @@ public class HomePresenterCompl implements IHomePresenter {
         mActivityHolder.addActivity("ProxySearcherActivity", ProxySearcherActivity.class);
         mActivityHolder.addActivity("HandlerActivity", HandlerActivity.class);
         mActivityHolder.addActivity("DynamicActivity", DynamicActivity.class);
+        mActivityHolder.addActivity("AndFixActivity", AndFixActivity.class);
     }
 
     public HomePresenterCompl(Context context, IHomeView iHomeView) {

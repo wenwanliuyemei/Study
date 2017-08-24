@@ -6,11 +6,13 @@ import android.content.pm.PackageManager;
 //import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
+import com.alipay.euler.andfix.patch.PatchManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.xm.study.pattern.observer.exit.model.ApplicationObservable;
+import com.xm.utils.LogUtils;
 
 import java.util.Iterator;
 import java.util.List;
@@ -24,24 +26,26 @@ public class MyApplication extends Application {
     private final String TAG = this.getClass().getSimpleName();//反射
     private final boolean isDebug = true;
     private static ApplicationObservable mApplicationObservable;
-
+    public static PatchManager mPatchManager;
 
     @Override
     public void onCreate() {
         super.onCreate();
         Log.e(TAG, "onCreate");
 
-        initEaseChat();
+//        initEaseChat();
         initFresco();
         initCrashReport();
+        initPatchManager();
     }
 
-    public ApplicationObservable getmApplicationObservable(){
-        if (mApplicationObservable==null){
-            mApplicationObservable=new ApplicationObservable();
+    public ApplicationObservable getmApplicationObservable() {
+        if (mApplicationObservable == null) {
+            mApplicationObservable = new ApplicationObservable();
         }
         return mApplicationObservable;
     }
+
     private void initEaseChat() {
 
         EMOptions options = new EMOptions();
@@ -108,5 +112,17 @@ public class MyApplication extends Application {
 //        CrashReport.initCrashReport(context, "7fe69ffb75", isDebug, strategy);
 //        // 如果通过“AndroidManifest.xml”来配置APP信息，初始化方法如下
 //        // CrashReport.initCrashReport(context, strategy);
+    }
+
+    private void initPatchManager() {
+        mPatchManager = new PatchManager(this);
+//        mPatchManager.init("1.0");
+        try {
+            mPatchManager.init(getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        mPatchManager.loadPatch();
+        LogUtils.e("initPatchManager");
     }
 }

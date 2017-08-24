@@ -142,4 +142,9 @@
     <string name="handler_thread_msg">--msg</string>
 
     <string name="dynamic_load">点击加载dex文件</string>
+
+    <string name="fix_andfix_show_toast">点击Show Toast</string>
+    <string name="fix_andfix_before">打补丁之前</string>
+    <string name="fix_andfix_after">打补丁之后</string>
+    <string name="fix_andfix_update">update</string>
 </resources>
