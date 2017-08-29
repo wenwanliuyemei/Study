@@ -24,6 +24,7 @@ import com.xm.study.handler.HandlerActivity;
 import com.xm.study.home.utils.ActivityHolder;
 import com.xm.study.home.view.IHomeView;
 import com.xm.study.linechart.LineChartActivity;
+import com.xm.study.lvheadfixed.LVHeadFixedActivity;
 import com.xm.study.notification.NotificationActivity;
 import com.xm.study.okhttp.OkHttpActivity;
 import com.xm.study.okhttp2.OkHttp2Activity;
@@ -74,6 +75,7 @@ public class HomePresenterCompl implements IHomePresenter {
         mActivityHolder.addActivity("HandlerActivity", HandlerActivity.class);
         mActivityHolder.addActivity("DynamicActivity", DynamicActivity.class);
         mActivityHolder.addActivity("AndFixActivity", AndFixActivity.class);
+        mActivityHolder.addActivity("LVHeadFixedActivity", LVHeadFixedActivity.class);
     }
 
     public HomePresenterCompl(Context context, IHomeView iHomeView) {
