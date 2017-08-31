@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.pm.PackageManager;
 //import android.support.multidex.MultiDexApplication;
+import android.os.Environment;
 import android.util.Log;
 
 import com.alipay.euler.andfix.patch.PatchManager;
@@ -12,11 +13,14 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.xm.study.pattern.observer.exit.model.ApplicationObservable;
+import com.xm.study.utils.FileUtils;
 import com.xm.utils.LogUtils;
 
 import java.util.Iterator;
 import java.util.List;
 
+import cn.jiajixin.nuwa.Nuwa;
+import com.xm.study.fix.nuwa.utils.*;
 /**
  * 作者：xm on 2017/1/3 11:25
  * 描述：
@@ -37,6 +41,7 @@ public class MyApplication extends Application {
         initFresco();
         initCrashReport();
         initPatchManager();
+        initNuwa();
     }
 
     public ApplicationObservable getmApplicationObservable() {
@@ -124,5 +129,13 @@ public class MyApplication extends Application {
         }
         mPatchManager.loadPatch();
         LogUtils.e("initPatchManager");
+    }
+
+    private void initNuwa() {
+        Nuwa.init(this);
+//        if (NuwaFileUtils.initPatch()) {
+//            Nuwa.loadPatch(this, FileUtils.getPatch().getAbsolutePath() + Consts.PATH_PATCH_NUWA);
+//        }
+        Nuwa.loadPatch(this, Environment.getExternalStorageDirectory().getAbsolutePath().concat("/patch.jar"));
     }
 }
