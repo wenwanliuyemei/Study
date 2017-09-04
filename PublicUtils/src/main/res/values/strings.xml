@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PublicUtils</string>
+    <string name="volley_generic_server_down">服务器异常 </string>
+    <string name="volley_no_internet">没有网路 </string>
+    <string name="volley_generic_error">generic_error </string>
+
 </resources>

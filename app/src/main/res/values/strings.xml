@@ -147,4 +147,12 @@
     <string name="fix_andfix_before">打补丁之前</string>
     <string name="fix_andfix_after">打补丁之后</string>
     <string name="fix_andfix_update">update</string>
+
+    <string name="image_cache_json">JsonObjectRequest </string>
+    <string name="image_cache_from_internet">获取网络图片并显示</string>
+    <string name="image_cache_from_cache">缓存中获取</string>
+    <string name="image_cache_from_xml">Volly获取XML</string>
+    <string name="image_cache_content">content</string>
+    <string name="image_cache_generic_server_down">服务器异常 </string>
+    <string name="image_cache_no_internet">没有网路 </string>
 </resources>
