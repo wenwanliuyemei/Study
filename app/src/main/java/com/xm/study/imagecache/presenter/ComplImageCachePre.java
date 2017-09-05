@@ -65,7 +65,7 @@ public class ComplImageCachePre extends ComplPresenter implements IImageCachePre
 
     @Override
     public void getImageFromCache() {
-        getImageFromCache(context,Consts.FROM_INTERNET);
+        getImageFromCache(context, Consts.FROM_INTERNET);
     }
 
     private void getImageFromJson(final Context context, String url) {
@@ -75,11 +75,9 @@ public class ComplImageCachePre extends ComplPresenter implements IImageCachePre
         //用来保存post参数
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("userId", "123189283");
-        JsonObjectRequest req = new JsonObjectRequest(url, new JSONObject(params)
-                , new Response.Listener<JSONObject>() {
+        JsonObjectRequest req = new JsonObjectRequest(url, new JSONObject(params), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                // TODO Auto-generated method stub
                 //正确响应时回调此函数
                 ((IImageCacheView) iView).getImageFromJsonSuccess(response.toString());
             }
@@ -101,14 +99,13 @@ public class ComplImageCachePre extends ComplPresenter implements IImageCachePre
             //设置请求头
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                // TODO Auto-generated method stub
                 return super.getHeaders();
             }
         };
         //第一个代表超时时间：即超过20S认为超时，第三个参数代表最大重试次数，这里设置为1.0f代表如果超时，则不重试
         req.setRetryPolicy(new DefaultRetryPolicy(20 * 1000, 1, 1.0f));
         //可以通过setTag方法为每一个Request添加tag
-        req.setTag("My Tag");
+        req.setTag(TAG);
         //也可以在我们实现的添加进RequestQueue的时候设置
         VolleyController.getInstance(context).addToRequestQueue(req, TAG);
         //取消Request
@@ -195,9 +192,9 @@ public class ComplImageCachePre extends ComplPresenter implements IImageCachePre
         VolleyController.getInstance(context).addToRequestQueue(xmlRequest, TAG);
     }
 
-    public void getImageFromCache(Context context,String url) {
+    public void getImageFromCache(Context context, String url) {
         Bitmap defaultImage = BitmapFactory.decodeResource(context.getResources(), R.mipmap.image_cache_loading);
         Bitmap errorImage = BitmapFactory.decodeResource(context.getResources(), R.mipmap.image_cache_load_error);
-        ((IImageCacheView)iView).getImageFromCacheDone(url, defaultImage, errorImage);
+        ((IImageCacheView) iView).getImageFromCacheDone(url, defaultImage, errorImage);
     }
 }
