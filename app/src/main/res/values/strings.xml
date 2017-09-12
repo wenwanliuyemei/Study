@@ -155,4 +155,16 @@
     <string name="image_cache_content">content</string>
     <string name="image_cache_generic_server_down">服务器异常 </string>
     <string name="image_cache_no_internet">没有网路 </string>
+
+    <string name="fragment_test_no_param_no_result">成功调用无参无返回值方法</string>
+    <string name="fragment_test_no_param_has_result">成功调用无参有返回值方法</string>
+    <string name="fragment_test_has_param_no_result">成功调用有参无返回值方法 参数值=</string>
+    <string name="fragment_test_has_param_has_result">成功调用有参有返回值方法 参数值=</string>
+    <string name="fragment_test_param_1">1</string>
+    <string name="fragment_test_param_2">2</string>
+    <string name="fragment_test_param_3">3</string>
+    <string name="fragment_test_has_param_more">成功调用多个参数的方法 参数值=</string>
+    <string name="fragment_test_has_param_more_1">  参数1=</string>
+    <string name="fragment_test_has_param_more_2">  参数2=</string>
+
 </resources>

@@ -70,4 +70,13 @@ public class BaseActivity extends AppCompatActivity implements IView, View.OnCli
 
     }
 
+
+    /**
+     * 为fragment设置functions，具体实现子类来做
+     *
+     * @param fragmentId
+     */
+    public void setFunctionsForFragment(int fragmentId) {
+
+    }
 }
