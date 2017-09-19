@@ -157,6 +157,7 @@
         <activity android:name=".lvheadfixed.LVHeadFixedActivity" />
         <activity android:name=".imagecache.ImageCacheActivity" />
         <activity android:name=".fragment.FragmentTestActivity" />
+        <activity android:name=".screenadaptation.ScreenAdaptationActivity"></activity>
     </application>
 
 </manifest>
