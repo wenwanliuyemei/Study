@@ -36,6 +36,7 @@ import com.xm.study.picasso.PicassoActivity;
 import com.xm.study.recyclerview.recyclerview.RecycleViewActivity;
 import com.xm.study.recyclerview.xrecyclerview.XRecycleViewActivity;
 import com.xm.study.reflect.TestReflectActivity;
+import com.xm.study.screenadaptation.ScreenAdaptationActivity;
 import com.xm.study.staticmethod.StaticMethodActivity;
 import com.xm.study.thread.ThreadActivity;
 import com.xm.study.upwardtransiton.UpwardTransitonActivity;
@@ -80,6 +81,7 @@ public class HomePresenterCompl implements IHomePresenter {
         mActivityHolder.addActivity("LVHeadFixedActivity", LVHeadFixedActivity.class);
         mActivityHolder.addActivity("ImageCacheActivity", ImageCacheActivity.class);
         mActivityHolder.addActivity("FragmentTestActivity", FragmentTestActivity.class);
+        mActivityHolder.addActivity("ScreenAdaptationActivity", ScreenAdaptationActivity.class);
     }
 
     public HomePresenterCompl(Context context, IHomeView iHomeView) {
