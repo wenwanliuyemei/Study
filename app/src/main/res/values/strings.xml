@@ -83,6 +83,8 @@
     <string name="data_algorithm_shell_sort">数据算法--希尔算法</string>
     <string name="data_algorithm_sequential_sort">数据算法--顺序查找算法</string>
 
+    <string name="data_algorithm_bin_tree_sort">数据算法--二叉树-排序</string>
+
     <string name="upward_transition_1">向上转型</string>
 
     <string name="encode_hint">输入需要加密的内容</string>

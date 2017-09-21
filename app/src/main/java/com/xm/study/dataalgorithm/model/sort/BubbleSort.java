@@ -1,4 +1,4 @@
-package com.xm.study.dataalgorithm.model;
+package com.xm.study.dataalgorithm.model.sort;
 
 import android.util.Log;
 

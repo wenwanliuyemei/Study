@@ -3,15 +3,19 @@ package com.xm.study.dataalgorithm.presenter;
 import android.content.Context;
 import android.util.Log;
 
-import com.xm.study.dataalgorithm.model.BubbleSort;
-import com.xm.study.dataalgorithm.model.InsertSort;
-import com.xm.study.dataalgorithm.model.QuickSort;
-import com.xm.study.dataalgorithm.model.SelectionSort;
-import com.xm.study.dataalgorithm.model.SequentialSort;
-import com.xm.study.dataalgorithm.model.ShellSort;
+import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
+import com.xm.study.dataalgorithm.model.bintree.BinTreeTraverse;
+import com.xm.study.dataalgorithm.model.sort.BubbleSort;
+import com.xm.study.dataalgorithm.model.sort.InsertSort;
+import com.xm.study.dataalgorithm.model.sort.QuickSort;
+import com.xm.study.dataalgorithm.model.sort.SelectionSort;
+import com.xm.study.dataalgorithm.model.sort.SequentialSort;
+import com.xm.study.dataalgorithm.model.sort.ShellSort;
 import com.xm.study.dataalgorithm.view.IDataAlgorithmView;
+import com.xm.utils.LogUtils;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by zhangxiumei on 2017/3/13.
@@ -77,5 +81,20 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         Log.e(TAG, "sequentialSort--arr=" + Arrays.toString(arr));
         Log.e(TAG, "sequentialSort--result=" + result);
         iDataAlgorithmView.sequentialSortDone();
+    }
+
+    @Override
+    public void binTreeSort(int[] arr) {
+        BinTreeTraverse binTree = new BinTreeTraverse();
+        List<BinTreeNode> nodeList=binTree.createBinTree(arr);
+        // nodeList中第0个索引处的值即为根节点
+        BinTreeNode root = nodeList.get(0);
+        LogUtils.e("先序遍历：");
+        BinTreeTraverse.preOrderTraverse(root);
+        LogUtils.e("中序遍历：");
+        BinTreeTraverse.inOrderTraverse(root);
+        LogUtils.e("后序遍历：");
+        BinTreeTraverse.postOrderTraverse(root);
+        iDataAlgorithmView.binTreeSortDone();
     }
 }

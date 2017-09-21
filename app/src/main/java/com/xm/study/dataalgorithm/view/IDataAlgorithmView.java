@@ -19,4 +19,7 @@ public interface IDataAlgorithmView {
     public void shellSortDone();
 
     public void sequentialSortDone();
+
+    void binTreeSortDone();
+
 }

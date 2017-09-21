@@ -18,5 +18,7 @@ public interface IDataAlgorithmPresenter {
 
     public void shellSort(int[] arr);
 
-    public void sequentialSort(int key,int[] arr);
+    public void sequentialSort(int key, int[] arr);
+
+    void binTreeSort(int[] arr);
 }
