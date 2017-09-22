@@ -21,4 +21,8 @@ public interface IDataAlgorithmPresenter {
     public void sequentialSort(int key, int[] arr);
 
     void binTreeSort(int[] arr);
+
+    void countOneInBinary(int num);
+
+    void maxSum(int[] arrInt);
 }

@@ -3,8 +3,11 @@ package com.xm.study.dataalgorithm.presenter;
 import android.content.Context;
 import android.util.Log;
 
+import com.xm.study.dataalgorithm.model.bintree.BinTreeInvert;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeTraverse;
+import com.xm.study.dataalgorithm.model.count.CountOneInBinary;
+import com.xm.study.dataalgorithm.model.count.MaxSum;
 import com.xm.study.dataalgorithm.model.sort.BubbleSort;
 import com.xm.study.dataalgorithm.model.sort.InsertSort;
 import com.xm.study.dataalgorithm.model.sort.QuickSort;
@@ -86,7 +89,7 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     @Override
     public void binTreeSort(int[] arr) {
         BinTreeTraverse binTree = new BinTreeTraverse();
-        List<BinTreeNode> nodeList=binTree.createBinTree(arr);
+        List<BinTreeNode> nodeList = binTree.createBinTree(arr);
         // nodeList中第0个索引处的值即为根节点
         BinTreeNode root = nodeList.get(0);
         LogUtils.e("先序遍历：");
@@ -95,6 +98,20 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         BinTreeTraverse.inOrderTraverse(root);
         LogUtils.e("后序遍历：");
         BinTreeTraverse.postOrderTraverse(root);
+        BinTreeNode binTreeNode = BinTreeInvert.invertTree(root);
+        LogUtils.e("invert：" + binTreeNode.toString());
         iDataAlgorithmView.binTreeSortDone();
+    }
+
+    @Override
+    public void countOneInBinary(int num) {
+        CountOneInBinary.hammingWeight(num);//12
+        iDataAlgorithmView.countOneInBinaryDone();
+    }
+
+    @Override
+    public void maxSum(int[] arrInt) {
+        LogUtils.e("maxSum=" + MaxSum.maxSum(arrInt));
+        iDataAlgorithmView.maxSumDone();
     }
 }

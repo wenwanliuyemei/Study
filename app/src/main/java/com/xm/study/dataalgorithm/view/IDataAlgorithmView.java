@@ -22,4 +22,7 @@ public interface IDataAlgorithmView {
 
     void binTreeSortDone();
 
+    void countOneInBinaryDone();
+
+    void maxSumDone();
 }

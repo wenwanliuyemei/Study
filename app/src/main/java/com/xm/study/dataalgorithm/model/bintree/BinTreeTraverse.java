@@ -12,6 +12,14 @@ import java.util.List;
 
 public class BinTreeTraverse {
 
+    /**
+     * 1、先add到list。
+     * 2、前lastParentIndex-1个父节点添加左右孩子。
+     * 3、lastParentIndex父节点可能没有右孩子，但肯定有左孩子。
+     *
+     * @param array
+     * @return
+     */
     public List<BinTreeNode> createBinTree(int[] array) {
         List<BinTreeNode> nodeList = new LinkedList<BinTreeNode>();
         // 将一个数组的值依次转换为Node节点
@@ -84,5 +92,23 @@ public class BinTreeTraverse {
         postOrderTraverse(node.leftChild);
         postOrderTraverse(node.rightChild);
         LogUtils.e(node.data + " ");
+    }
+
+    private List<BinTreeNode> a(int[] arr) {
+        List<BinTreeNode> binTreeNodeList = new LinkedList<>();
+        for (int position = 0; position < arr.length; position++) {
+            binTreeNodeList.add(new BinTreeNode(arr[position]));
+        }
+        for (int parentPositon = 0; parentPositon < binTreeNodeList.size() / 2 - 1; parentPositon++) {
+            binTreeNodeList.get(parentPositon).leftChild = binTreeNodeList.get(parentPositon * 2 + 1);
+            binTreeNodeList.get(parentPositon).rightChild = binTreeNodeList.get(parentPositon * 2 + 2);
+        }
+
+        int lastParentPosition = binTreeNodeList.size() / 2 - 1;
+        binTreeNodeList.get(lastParentPosition).leftChild = binTreeNodeList.get(lastParentPosition * 2 + 1);
+        if (binTreeNodeList.size() % 2 == 1) {
+            binTreeNodeList.get(lastParentPosition).rightChild = binTreeNodeList.get(lastParentPosition * 2 + 2);
+        }
+        return binTreeNodeList;
     }
 }
