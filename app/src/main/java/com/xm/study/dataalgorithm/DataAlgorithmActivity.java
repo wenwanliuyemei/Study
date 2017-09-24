@@ -134,9 +134,9 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 iDataAlgorithmPresenter.binTreeSort(new int[]{5, 3, 1, 7, 4, 8, 2});
                 break;
             case R.id.tv_count_1_in_binary:
-                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);
-                iDataAlgorithmPresenter.maxSum(new int[]{2});
-                iDataAlgorithmPresenter.maxSum(new int[]{5, 3});
+//                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);
+//                iDataAlgorithmPresenter.maxSum(new int[]{2});
+//                iDataAlgorithmPresenter.maxSum(new int[]{5, 3});
                 iDataAlgorithmPresenter.maxSum(new int[]{5, 3, 1, 7, 4, 8, 2,10,3,11,34});
                 break;
         }

@@ -19,6 +19,7 @@ import com.xm.utils.LogUtils;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by zhangxiumei on 2017/3/13.
@@ -111,7 +112,10 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
 
     @Override
     public void maxSum(int[] arrInt) {
-        LogUtils.e("maxSum=" + MaxSum.maxSum(arrInt));
+        int[] arrIntTemp=arrInt;
+//        LogUtils.e("maxSum=" + MaxSum.maxSum(arrInt));
+        Map<Integer,List<Object>> map=MaxSum.maxSum2(arrIntTemp);
+        LogUtils.e("map="+map);
         iDataAlgorithmView.maxSumDone();
     }
 }

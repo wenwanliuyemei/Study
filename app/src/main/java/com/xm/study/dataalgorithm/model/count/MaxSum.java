@@ -102,13 +102,12 @@ public class MaxSum {
         result.put(0, maxSumList);
 
         for (int j=maxSumNodeTemp.getId()-1;j>0;j--){
-            if(dataTemp.get(j)==(maxSumNodeTemp.getData()-maxSumNodeTemp.getOriginalData())){
-
+            if(((MaxSumNode)dataTemp.get(j)).getData()==(maxSumNodeTemp.getData()-maxSumNodeTemp.getOriginalData())){
+                idList.add(j);
+                maxSumNodeTemp= (MaxSumNode) dataTemp.get(j);
             }
         }
-
         result.put(1, idList);
-
         return result;
     }
 
