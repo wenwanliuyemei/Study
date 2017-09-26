@@ -9,6 +9,7 @@ public class MaxSumNode {
     private int data=0;
     private int id=0;
     private int originalData=0;
+    private int originalId=0;
 
     public int getData() {
         return data;
@@ -32,5 +33,13 @@ public class MaxSumNode {
 
     public void setOriginalData(int originalData) {
         this.originalData = originalData;
+    }
+
+    public int getOriginalId() {
+        return originalId;
+    }
+
+    public void setOriginalId(int originalId) {
+        this.originalId = originalId;
     }
 }

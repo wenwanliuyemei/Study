@@ -55,60 +55,74 @@ public class MaxSum {
             return null;
         }
         if (arrInt.length == 1) {
-            MaxSumNode maxSumNode = new MaxSumNode();
-            maxSumNode.setData(arrInt[0]);
-            maxSumNode.setId(0);
-            maxSumNode.setOriginalData(arrInt[0]);
-            maxSumList.add(maxSumNode);
-            idList.add(maxSumNode.getId());
-            result.put(0, maxSumList);
-            result.put(1, idList);
+            setResult(arrInt[0], 0, maxSumList, idList, result);
             return result;
         } else if (arrInt.length == 2) {
-            MaxSumNode maxSumNode = new MaxSumNode();
-            maxSumNode.setData(Math.max(arrInt[0], arrInt[1]));
-            maxSumNode.setId(arrInt[0] > arrInt[1] ? 0 : 1);
-            maxSumNode.setOriginalData(arrInt[maxSumNode.getId()]);
-            maxSumList.add(maxSumNode);
-            idList.add(maxSumNode.getId());
-            result.put(0, maxSumList);
-            result.put(1, idList);
+            setResult(Math.max(arrInt[0], arrInt[1]),
+                    arrInt[0] > arrInt[1] ? 0 : 1, maxSumList, idList, result);
             return result;
         }
-        arrInt[2] += arrInt[0];
-        List<Object> dataTemp = new ArrayList<>();
-        MaxSumNode maxSumNodeTemp = new MaxSumNode();
-        for (int j = 0; j < 3; j++) {
-            maxSumNodeTemp.setData(arrInt[j]);
-            maxSumNodeTemp.setId(j);
-            maxSumNodeTemp.setOriginalData(arrInt[maxSumNodeTemp.getId()]);
-            dataTemp.add(maxSumNodeTemp);
-        }
-        int i = 3;
-        for (; i < arrInt.length; i++) {
-            maxSumNodeTemp.setId(i);
-            maxSumNodeTemp.setOriginalData(arrInt[maxSumNodeTemp.getId()]);
-            arrInt[i] += Math.max(arrInt[i - 2], arrInt[i - 3]);
-            maxSumNodeTemp.setData(arrInt[i]);
-            dataTemp.add(maxSumNodeTemp);
-        }
-        for (int j = 0; j < arrInt.length; j++) {
-            LogUtils.e("arrInt[" + j + "]=" + arrInt[j]);
-        }
-        maxSumNodeTemp.setData(Math.max(arrInt[i - 2], arrInt[i - 1]));
-        maxSumNodeTemp.setId(arrInt[i - 2] > arrInt[i - 1] ? (i - 2) : (i - 1));
-        maxSumNodeTemp.setOriginalData(arrInt[maxSumNodeTemp.getId()]);
-        maxSumList.add(maxSumNodeTemp);
+        List<MaxSumNode> dataTemp = new ArrayList<>();
+        setMaxSumNode(arrInt, dataTemp);
+        MaxSumNode maxSumNode = dataTemp.get(dataTemp.get(dataTemp.size() - 2).getData()
+                > dataTemp.get(dataTemp.size() - 1).getData() ? (dataTemp.size() - 2) : (dataTemp.size() - 1));
+        maxSumList.clear();
+        maxSumList.add(maxSumNode);
         result.put(0, maxSumList);
-
-        for (int j=maxSumNodeTemp.getId()-1;j>0;j--){
-            if(((MaxSumNode)dataTemp.get(j)).getData()==(maxSumNodeTemp.getData()-maxSumNodeTemp.getOriginalData())){
-                idList.add(j);
-                maxSumNodeTemp= (MaxSumNode) dataTemp.get(j);
-            }
+        while(maxSumNode.getOriginalId()!=maxSumNode.getId()){
+            idList.add(maxSumNode);
+            maxSumNode=dataTemp.get(maxSumNode.getOriginalId());
         }
         result.put(1, idList);
         return result;
     }
 
+    private static void setResult(int data, int i, List<Object> maxSumList, List<Object> idList, Map<Integer, List<Object>> result) {
+        MaxSumNode maxSumNode = new MaxSumNode();
+        setMaxSumNode(data, i, maxSumNode);
+        maxSumList.add(maxSumNode);
+        idList.add(maxSumNode.getId());
+        result.put(0, maxSumList);
+        result.put(1, idList);
+    }
+
+    private static void setMaxSumNode(int[] arrInt, List<MaxSumNode> dataTemp) {
+        for (int i = 0; i < arrInt.length; i++) {
+            MaxSumNode maxSumNodeTemp = new MaxSumNode();
+            if (i == 0 || i == 1) {
+                setMaxSumNode(arrInt[i], i, maxSumNodeTemp);
+            } else if (i == 2) {
+                maxSumNodeTemp.setId(i);
+                maxSumNodeTemp.setOriginalData(arrInt[i]);
+                arrInt[2] += arrInt[0];
+                maxSumNodeTemp.setData(arrInt[i]);
+                maxSumNodeTemp.setOriginalId(0);
+            } else if (i > 2) {
+                maxSumNodeTemp.setId(i);
+                maxSumNodeTemp.setOriginalData(arrInt[i]);
+                arrInt[i] += Math.max(arrInt[i - 2], arrInt[i - 3]);
+                maxSumNodeTemp.setData(arrInt[i]);
+                maxSumNodeTemp.setOriginalId(arrInt[i - 2] > arrInt[i - 3] ? (i - 2) : (i - 3));
+            }
+            addMaxSumNode(dataTemp, maxSumNodeTemp);
+        }
+    }
+
+
+    private static void setMaxSumNode(int data, int i, MaxSumNode maxSumNodeTemp) {
+        maxSumNodeTemp.setId(i);
+        maxSumNodeTemp.setOriginalData(data);
+        maxSumNodeTemp.setData(data);
+        maxSumNodeTemp.setOriginalId(i);
+    }
+
+    private static void addMaxSumNode(List<MaxSumNode> dataTemp, MaxSumNode maxSumNodeTemp) {
+        dataTemp.add(maxSumNodeTemp);
+    }
+
+    private static List<Object> idListAdd(List<Object> idList, MaxSumNode maxSumNode) {
+        List<Object> temp = new ArrayList<>();
+        temp.add(maxSumNode);
+        return idListAdd(idList, (MaxSumNode) idList.get(maxSumNode.getOriginalId()));
+    }
 }
