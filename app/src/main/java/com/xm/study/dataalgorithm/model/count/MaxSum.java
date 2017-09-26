@@ -26,7 +26,6 @@ import java.util.Map;
 public class MaxSum {
 
     public static int maxSum(int[] arrInt) {
-
         if (arrInt == null || arrInt.length == 0) {
             return 0;
         }
@@ -62,22 +61,30 @@ public class MaxSum {
                     arrInt[0] > arrInt[1] ? 0 : 1, maxSumList, idList, result);
             return result;
         }
-        List<MaxSumNode> dataTemp = new ArrayList<>();
-        setMaxSumNode(arrInt, dataTemp);
-        MaxSumNode maxSumNode = dataTemp.get(dataTemp.get(dataTemp.size() - 2).getData()
-                > dataTemp.get(dataTemp.size() - 1).getData() ? (dataTemp.size() - 2) : (dataTemp.size() - 1));
-        maxSumList.clear();
-        maxSumList.add(maxSumNode);
-        result.put(0, maxSumList);
-        while(maxSumNode.getOriginalId()!=maxSumNode.getId()){
-            idList.add(maxSumNode);
-            maxSumNode=dataTemp.get(maxSumNode.getOriginalId());
-        }
-        result.put(1, idList);
+        setIdList(arrInt, maxSumList, idList, result);
         return result;
     }
 
-    private static void setResult(int data, int i, List<Object> maxSumList, List<Object> idList, Map<Integer, List<Object>> result) {
+    private static void setIdList(int[] arrInt, List<Object> maxSumList, List<Object> idList,
+                                  Map<Integer, List<Object>> result) {
+        List<MaxSumNode> dataTemp = new ArrayList<>();
+        setMaxSumNode(arrInt, dataTemp);
+        MaxSumNode maxSumNode = dataTemp.get(dataTemp.get(dataTemp.size() - 2).getData()
+                > dataTemp.get(dataTemp.size() - 1).getData() ?
+                (dataTemp.size() - 2) : (dataTemp.size() - 1));
+        maxSumList.clear();
+        maxSumList.add(maxSumNode);
+        result.put(0, maxSumList);
+        while (maxSumNode.getOriginalId() != maxSumNode.getId()) {
+            idList.add(maxSumNode);
+            maxSumNode = dataTemp.get(maxSumNode.getOriginalId());
+        }
+        idList.add(maxSumNode);
+        result.put(1, idList);
+    }
+
+    private static void setResult(int data, int i, List<Object> maxSumList,
+                                  List<Object> idList, Map<Integer, List<Object>> result) {
         MaxSumNode maxSumNode = new MaxSumNode();
         setMaxSumNode(data, i, maxSumNode);
         maxSumList.add(maxSumNode);
@@ -109,20 +116,14 @@ public class MaxSum {
     }
 
 
+    private static void addMaxSumNode(List<MaxSumNode> dataTemp, MaxSumNode maxSumNodeTemp) {
+        dataTemp.add(maxSumNodeTemp);
+    }
+
     private static void setMaxSumNode(int data, int i, MaxSumNode maxSumNodeTemp) {
         maxSumNodeTemp.setId(i);
         maxSumNodeTemp.setOriginalData(data);
         maxSumNodeTemp.setData(data);
         maxSumNodeTemp.setOriginalId(i);
-    }
-
-    private static void addMaxSumNode(List<MaxSumNode> dataTemp, MaxSumNode maxSumNodeTemp) {
-        dataTemp.add(maxSumNodeTemp);
-    }
-
-    private static List<Object> idListAdd(List<Object> idList, MaxSumNode maxSumNode) {
-        List<Object> temp = new ArrayList<>();
-        temp.add(maxSumNode);
-        return idListAdd(idList, (MaxSumNode) idList.get(maxSumNode.getOriginalId()));
     }
 }
