@@ -6,6 +6,7 @@ import android.util.Log;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeInvert;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeTraverse;
+import com.xm.study.dataalgorithm.model.bintree.RightSideView;
 import com.xm.study.dataalgorithm.model.count.CountOneInBinary;
 import com.xm.study.dataalgorithm.model.count.MaxSum;
 import com.xm.study.dataalgorithm.model.sort.BubbleSort;
@@ -101,6 +102,10 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         BinTreeTraverse.postOrderTraverse(root);
         BinTreeNode binTreeNode = BinTreeInvert.invertTree(root);
         LogUtils.e("invert：" + binTreeNode.toString());
+        List<Integer> rightSideViewList= RightSideView.rightSideView(root);
+        LogUtils.e("rightSideViewList：" + rightSideViewList.toString());
+        List<Integer> leftSideViewList= RightSideView.leftSideView(root);
+        LogUtils.e("leftSideViewList：" + leftSideViewList.toString());
         iDataAlgorithmView.binTreeSortDone();
     }
 
