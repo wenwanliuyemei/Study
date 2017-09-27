@@ -157,7 +157,11 @@
         <activity android:name=".lvheadfixed.LVHeadFixedActivity" />
         <activity android:name=".imagecache.ImageCacheActivity" />
         <activity android:name=".fragment.FragmentTestActivity" />
-        <activity android:name=".screenadaptation.ScreenAdaptationActivity"></activity>
+        <activity android:name=".screenadaptation.ScreenAdaptationActivity" />
+        <activity android:name=".keepalive.KeepAliveActivity" />
+
+        <service android:name=".keepalive.service.GrayService" />
+        <service android:name=".keepalive.service.GrayInnerService" />
     </application>
 
 </manifest>

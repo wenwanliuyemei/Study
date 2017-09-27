@@ -25,6 +25,7 @@ import com.xm.study.handler.HandlerActivity;
 import com.xm.study.home.utils.ActivityHolder;
 import com.xm.study.home.view.IHomeView;
 import com.xm.study.imagecache.ImageCacheActivity;
+import com.xm.study.keepalive.KeepAliveActivity;
 import com.xm.study.linechart.LineChartActivity;
 import com.xm.study.lvheadfixed.LVHeadFixedActivity;
 import com.xm.study.notification.NotificationActivity;
@@ -53,6 +54,7 @@ public class HomePresenterCompl implements IHomePresenter {
 
     static {
         mActivityHolder = new ActivityHolder();
+        mActivityHolder.addActivity("KeepAliveActivity", KeepAliveActivity.class);
         mActivityHolder.addActivity("TestReflectActivity", TestReflectActivity.class);
         mActivityHolder.addActivity("GenericityActivity", GenericityActivity.class);
         mActivityHolder.addActivity("DataStructureActivity", DataStructureActivity.class);
