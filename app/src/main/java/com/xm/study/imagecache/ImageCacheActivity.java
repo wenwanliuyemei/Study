@@ -11,6 +11,7 @@ import com.xm.study.R;
 import com.xm.study.base.BaseActivity;
 import com.xm.study.imagecache.presenter.ComplImageCachePre;
 import com.xm.study.imagecache.presenter.IImageCachePre;
+import com.xm.study.imagecache.utils.ImageHandle;
 import com.xm.study.imagecache.view.IImageCacheView;
 import com.xm.utils.LogUtils;
 import com.xm.utils.volley.utils.ImageCacheManager;
@@ -39,7 +40,8 @@ public class ImageCacheActivity extends BaseActivity implements IImageCacheView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_cache);
         ButterKnife.bind(this);
-
+        ivImgView.setImageBitmap(ImageHandle.decodeSampledBitmapFromResource(
+                getResources(), R.mipmap.image_cache_dialog_iv_show, 50, 50));
         iPresenter = new ComplImageCachePre(this, this);
     }
 

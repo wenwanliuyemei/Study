@@ -69,8 +69,15 @@ public class HandlerPreCom extends ComplPresenter implements IHandlerPre {
 
 
     @Override
-    public void main(String str) {
-        MessageUtils.sendMessageMsg(context, str, MAIN, mHandlerMain);
+    public void main(final String str) {
+//        MessageUtils.sendMessageMsg(context, str, MAIN, mHandlerMain);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                MessageUtils.sendMessageMsg(context, str, MAIN, mHandlerMain);
+            }
+        }).start();
     }
 
     @Override
