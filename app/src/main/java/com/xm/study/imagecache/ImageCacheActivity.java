@@ -1,6 +1,5 @@
 package com.xm.study.imagecache;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +10,7 @@ import com.xm.study.R;
 import com.xm.study.base.BaseActivity;
 import com.xm.study.imagecache.presenter.ComplImageCachePre;
 import com.xm.study.imagecache.presenter.IImageCachePre;
-import com.xm.study.imagecache.utils.ImageHandle;
+import com.xm.utils.image.ImageHandle;
 import com.xm.study.imagecache.view.IImageCacheView;
 import com.xm.utils.LogUtils;
 import com.xm.utils.volley.utils.ImageCacheManager;
