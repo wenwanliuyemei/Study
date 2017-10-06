@@ -1,6 +1,7 @@
 package com.xm.study.thread.presenter;
 
 import android.content.Context;
+import android.os.Handler;
 import android.util.Log;
 
 import com.xm.study.genericity.model.TwoTuple;
@@ -11,11 +12,15 @@ import com.xm.study.thread.model.ThreadImplementsTicket2;
 import com.xm.study.thread.model.ThreadPoolTest;
 import com.xm.study.thread.model.ThreadStop;
 import com.xm.study.thread.model.ThreadVolatile;
+import com.xm.study.thread.utils.GetData;
+import com.xm.study.thread.utils.LogService;
 import com.xm.study.thread.view.IThreadView;
+import com.xm.utils.LogUtils;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -155,5 +160,39 @@ public class ThreadPresenterCompl implements IThreadPresenter {
         }
         threadPoolExecutor.shutdown();
         iThreadView.threadPoolTestDone();
+    }
+
+    @Override
+    public void threadShare() {
+        GetData data = new GetData();
+        Future<String> future = data.getData();
+        //做其他事情
+        LogUtils.e("do something!");
+        StringBuffer str = new StringBuffer();
+        try {
+            str.append(future.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        LogUtils.e(str.toString());
+        final LogService logService = new LogService();
+        try {
+            for (int i = 0; i < 1000; i++) {
+                logService.log(i + "");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        logService.start();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                logService.stop();
+            }
+        }, 30);
+        iThreadView.threadShareDone();
     }
 }

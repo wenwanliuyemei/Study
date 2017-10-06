@@ -60,6 +60,7 @@
     <string name="thread_stop">线程-stop</string>
     <string name="thread_volatile">线程-volatile</string>
     <string name="thread_pool">线程-线程池</string>
+    <string name="thread_share">线程-共享数据</string>
 
     <string name="download_hello">Hello World, MainActivity!</string>
     <string name="download_path">下载路径</string>

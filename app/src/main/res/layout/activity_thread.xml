@@ -75,40 +75,40 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/thread_pool" />
 
-            <!--  <TextView
-                 android:id="@+id/tv_proxy"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="20dp"
-                 android:text="@string/refelect_proxy" />
+            <TextView
+                android:id="@+id/tv_thread_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/thread_share" />
 
-             <TextView
-                 android:id="@+id/tv_int_list_put_string"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="20dp"
-                 android:text="@string/refelect_int_list_put_string" />
+            <!--<TextView
+                android:id="@+id/tv_int_list_put_string"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/refelect_int_list_put_string" />
 
-             <TextView
-                 android:id="@+id/tv_update_array"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="20dp"
-                 android:text="@string/refelect_update_array" />
+            <TextView
+                android:id="@+id/tv_update_array"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/refelect_update_array" />
 
-             <TextView
-                 android:id="@+id/tv_update_array_size"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="20dp"
-                 android:text="@string/refelect_update_array_size" />
+            <TextView
+                android:id="@+id/tv_update_array_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/refelect_update_array_size" />
 
-             <TextView
-                 android:id="@+id/tv_fruit_factory"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="20dp"
-                 android:text="@string/refelect_fruit_factory" />-->
+            <TextView
+                android:id="@+id/tv_fruit_factory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/refelect_fruit_factory" />-->
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

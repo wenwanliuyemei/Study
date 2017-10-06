@@ -5,39 +5,55 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.xm.study.base.BaseActivity;
 import com.xm.study.R;
+import com.xm.study.base.BaseActivity;
 import com.xm.study.thread.presenter.IThreadPresenter;
 import com.xm.study.thread.presenter.ThreadPresenterCompl;
 import com.xm.study.thread.view.IThreadView;
+import com.xm.utils.LogUtils;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ThreadActivity extends BaseActivity implements IThreadView {
 
     private final String TAG = this.getClass().getSimpleName();
+    @Bind(R.id.tv_thread_extends_ticket)
+    TextView tvThreadExtendsTicket;
+    @Bind(R.id.tv_thread_implements_ticket)
+    TextView tvThreadImplementsTicket;
+    @Bind(R.id.tv_thread_implements_ticket_2)
+    TextView tvThreadImplementsTicket2;
+    @Bind(R.id.tv_thread_extends_implements_test)
+    TextView tvThreadExtendsImplementsTest;
+    @Bind(R.id.tv_thread_callable_test)
+    TextView tvThreadCallableTest;
+    @Bind(R.id.tv_thread_stop)
+    TextView tvThreadStop;
+    @Bind(R.id.tv_thread_volatile)
+    TextView tvThreadVolatile;
+    @Bind(R.id.tv_thread_pool)
+    TextView tvThreadPool;
+    @Bind(R.id.tv_thread_share)
+    TextView tvThreadShare;
+
     private IThreadPresenter iThreadPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread);
-
-        //init view、set listener
-        int[] ids = new int[]{R.id.tv_thread_extends_ticket
-                , R.id.tv_thread_implements_ticket, R.id.tv_thread_implements_ticket_2
-                , R.id.tv_thread_extends_implements_test, R.id.tv_thread_callable_test
-                , R.id.tv_thread_stop, R.id.tv_thread_volatile
-                , R.id.tv_thread_pool
-// ,R.id.tv_proxy,R.id.tv_int_list_put_string,R.id.tv_update_array,
-//                R.id.tv_update_array_size,R.id.tv_fruit_factory
-        };
-        TextView[] textViews = new TextView[ids.length];
-        initViewAndSetListener(textViews, ids);
+        ButterKnife.bind(this);
 
         //init
         iThreadPresenter = new ThreadPresenterCompl(this, this);
     }
 
-    @Override
+    @OnClick({R.id.tv_thread_extends_ticket, R.id.tv_thread_implements_ticket,
+            R.id.tv_thread_implements_ticket_2, R.id.tv_thread_extends_implements_test,
+            R.id.tv_thread_callable_test, R.id.tv_thread_stop, R.id.tv_thread_volatile,
+            R.id.tv_thread_pool, R.id.tv_thread_share})
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()) {
@@ -65,21 +81,9 @@ public class ThreadActivity extends BaseActivity implements IThreadView {
             case R.id.tv_thread_pool:
                 iThreadPresenter.threadPoolTest();
                 break;
-//            case R.id.tv_proxy:
-//                mITestFelectPresneter.proxy();
-//                break;
-//            case R.id.tv_int_list_put_string:
-//                mITestFelectPresneter.intListPutString();
-//                break;
-//            case R.id.tv_update_array:
-//                mITestFelectPresneter.updateArray();
-//                break;
-//            case R.id.tv_update_array_size:
-//                mITestFelectPresneter.upaateArraySize();
-//                break;
-//            case R.id.tv_fruit_factory:
-//                mITestFelectPresneter.fruitFactory();
-//                break;
+            case R.id.tv_thread_share:
+                iThreadPresenter.threadShare();
+                break;
         }
     }
 
@@ -121,5 +125,10 @@ public class ThreadActivity extends BaseActivity implements IThreadView {
     @Override
     public void threadPoolTestDone() {
         Log.e(TAG, "threadPoolTestDone");
+    }
+
+    @Override
+    public void threadShareDone() {
+        LogUtils.e(TAG, "threadPoolTestDone");
     }
 }

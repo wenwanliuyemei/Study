@@ -21,4 +21,6 @@ public interface IThreadView {
     public void threadVolatileDone();
 
     public void threadPoolTestDone();
+
+    void threadShareDone();
 }

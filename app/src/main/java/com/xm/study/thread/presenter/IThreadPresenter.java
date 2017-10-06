@@ -21,4 +21,6 @@ public interface IThreadPresenter {
     public void threadVolatile();
 
     public void threadPoolTest();
+
+    void threadShare();
 }
