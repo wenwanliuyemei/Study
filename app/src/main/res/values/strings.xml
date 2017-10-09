@@ -172,4 +172,6 @@
     <string name="fragment_test_has_param_more_1">  参数1=</string>
     <string name="fragment_test_has_param_more_2">  参数2=</string>
 
+    <string name="four_components_by_binder">by_binder</string>
+
 </resources>

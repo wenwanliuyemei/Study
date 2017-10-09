@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 
 import com.xm.study.R;
 import com.xm.study.cardview.CardViewActivity;
+import com.xm.study.components.FourComponentsActivity;
 import com.xm.study.crashreport.CrashReportActivity;
 import com.xm.study.dataalgorithm.DataAlgorithmActivity;
 import com.xm.study.datastructure.DataStructureActivity;
@@ -54,6 +55,7 @@ public class HomePresenterCompl implements IHomePresenter {
 
     static {
         mActivityHolder = new ActivityHolder();
+        mActivityHolder.addActivity("FourComponentsActivity", FourComponentsActivity.class);
         mActivityHolder.addActivity("KeepAliveActivity", KeepAliveActivity.class);
         mActivityHolder.addActivity("TestReflectActivity", TestReflectActivity.class);
         mActivityHolder.addActivity("GenericityActivity", GenericityActivity.class);

@@ -162,6 +162,17 @@
 
         <service android:name=".keepalive.service.GrayService" />
         <service android:name=".keepalive.service.GrayInnerService" />
+
+        <activity android:name=".components.FourComponentsActivity" />
+
+        <service
+            android:name=".components.service.MsgService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="components.service.ByBinder"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
