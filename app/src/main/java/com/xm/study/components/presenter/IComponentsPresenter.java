@@ -9,5 +9,9 @@ import com.xm.study.base.IPresenter;
 
 public interface IComponentsPresenter extends IPresenter {
 
-    void byBinder();
+    void byBinderInit();
+
+    void byBinderDonwload();
+
+    void byBinderUnbind();
 }

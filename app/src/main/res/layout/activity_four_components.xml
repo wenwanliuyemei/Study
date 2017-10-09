@@ -28,10 +28,11 @@
 
             <ProgressBar
                 android:id="@+id/pb_by_binder"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:max="100"
+                android:background="@android:color/black"
                 style="@android:style/Widget.ProgressBar.Horizontal" />
 
             <!-- <TextView

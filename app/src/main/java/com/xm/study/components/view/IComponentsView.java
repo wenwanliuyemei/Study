@@ -9,5 +9,12 @@ import com.xm.study.base.IView;
 
 public interface IComponentsView extends IView {
 
-    void byBinderDone();
+    void byBinderInitDone();
+
+    void byBinderDonwloadDone();
+
+    void byBinderShowProgress(int progress);
+
+    void byBinderUnbindDone();
+
 }
