@@ -10,6 +10,7 @@ import com.xm.study.base.BaseActivity;
 import com.xm.study.components.presenter.ComplComponentsPre;
 import com.xm.study.components.view.IComponentsView;
 import com.xm.utils.LogUtils;
+import com.xm.utils.MyViewUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,6 +24,8 @@ public class FourComponentsActivity extends BaseActivity implements IComponentsV
     ProgressBar pbByBinder;
     @Bind(R.id.pb_by_interface)
     ProgressBar pbByInterface;
+    @Bind(R.id.pb_by_broadcast)
+    ProgressBar pbByBroadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,8 @@ public class FourComponentsActivity extends BaseActivity implements IComponentsV
         iPresenter = new ComplComponentsPre(this, this);
         ((ComplComponentsPre) iPresenter).byBinderInit();
         ((ComplComponentsPre) iPresenter).byInterfaceInit();
+        ((ComplComponentsPre) iPresenter).byBroadcastInit();
     }
-
 
     @OnClick(R.id.tv_by_binder)
     public void onClick(View view) {
@@ -41,6 +44,7 @@ public class FourComponentsActivity extends BaseActivity implements IComponentsV
             case R.id.tv_by_binder:
                 ((ComplComponentsPre) iPresenter).byBinderDonwload();
                 ((ComplComponentsPre) iPresenter).byInterfaceDonwload();
+                ((ComplComponentsPre) iPresenter).byBroadcastDownload();
                 break;
         }
     }
@@ -57,7 +61,7 @@ public class FourComponentsActivity extends BaseActivity implements IComponentsV
 
     @Override
     public void byBinderShowProgress(int progress) {
-        pbByBinder.setProgress(progress);
+        MyViewUtils.setProgress(pbByBinder,progress);
     }
 
     @Override
@@ -72,18 +76,34 @@ public class FourComponentsActivity extends BaseActivity implements IComponentsV
 
     @Override
     public void byInterfaceShowProgress(int progress) {
-        pbByInterface.setProgress(progress);
+        MyViewUtils.setProgress(pbByInterface,progress);
     }
 
     @Override
-    public void unbindDone() {
+    public void stopDone() {
         LogUtils.e("unbindDone");
     }
 
+    @Override
+    public void byBroadcastInitDone() {
+        LogUtils.e("byBroadcastInitDone");
+    }
+
+    @Override
+    public void byBroadcastDownloadDone() {
+        LogUtils.e("byBroadcastDownloadDone");
+    }
+
+    @Override
+    public void byBroadcastShowProgress(int progress) {
+        MyViewUtils.setProgress(pbByBroadcast,progress);
+    }
 
     @Override
     protected void onDestroy() {
-        ((ComplComponentsPre) iPresenter).unbind();
+        ((ComplComponentsPre) iPresenter).stop();
         super.onDestroy();
     }
+
+
 }

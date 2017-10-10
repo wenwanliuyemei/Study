@@ -181,6 +181,14 @@
                 <action android:name="components.service.ByInterface" />
             </intent-filter>
         </service>
+        <service
+            android:name=".components.service.MsgServiceByBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="components.service.ByBroadcast" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

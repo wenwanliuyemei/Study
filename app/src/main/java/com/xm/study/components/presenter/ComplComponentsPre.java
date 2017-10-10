@@ -1,15 +1,19 @@
 package com.xm.study.components.presenter;
 
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.os.Bundle;
 import android.os.IBinder;
 
 import com.xm.study.base.ComplPresenter;
 import com.xm.study.base.IView;
 import com.xm.study.components.model.OnProgressListener;
 import com.xm.study.components.service.MsgServiceByBinder;
+import com.xm.study.components.service.MsgServiceByBroadcast;
 import com.xm.study.components.service.MsgServiceByInterface;
 import com.xm.study.components.view.IComponentsView;
 import com.xm.utils.IntentUtils;
@@ -23,6 +27,9 @@ public class ComplComponentsPre extends ComplPresenter implements IComponentsPre
 
     private MsgServiceByBinder msgServiceByBinder;
     private MsgServiceByInterface msgServiceByInterface;
+    private MsgServiceByBroadcast msgServiceByBroadcast;
+    private MsgReceiverByBroadcast msgReceiverByBroadcast;
+    private Intent intentByBroadcast;
     private int progressByBinder = 0;
 
     ServiceConnection connByBinder = new ServiceConnection() {
@@ -94,10 +101,31 @@ public class ComplComponentsPre extends ComplPresenter implements IComponentsPre
     }
 
     @Override
-    public void unbind() {
+    public void byBroadcastInit() {
+        //动态注册广播接收器
+        msgReceiverByBroadcast = new MsgReceiverByBroadcast();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(MsgReceiverByBroadcast.ACTION);
+        context.registerReceiver(msgReceiverByBroadcast, intentFilter);
+        ((IComponentsView) iView).byBroadcastInitDone();
+    }
+
+    @Override
+    public void byBroadcastDownload() {
+        intentByBroadcast = new Intent(MsgServiceByBroadcast.ACTION);
+        context.startService(intentByBroadcast);
+        ((IComponentsView) iView).byBroadcastDownloadDone();
+    }
+
+    @Override
+    public void stop() {
         context.unbindService(connByBinder);
         context.unbindService(connByInterface);
-        ((IComponentsView) iView).unbindDone();
+        //停止服务
+        context.stopService(intentByBroadcast);
+        //注销广播
+        context.unregisterReceiver(msgReceiverByBroadcast);
+        ((IComponentsView) iView).stopDone();
     }
 
     /**
@@ -121,4 +149,24 @@ public class ComplComponentsPre extends ComplPresenter implements IComponentsPre
             }
         }).start();
     }
+
+
+   public class MsgReceiverByBroadcast extends BroadcastReceiver {
+
+       public static final int BY_BROADCAST = 1;
+       public static final String WHAT = "what";
+       public static final String PROGRESS = "progress";
+       public static final String ACTION="com.xm.study.components.RECEIVER";
+
+       @Override
+       public void onReceive(Context context, Intent intent) {
+           Bundle bundle=intent.getExtras();
+           int what=bundle.getInt(WHAT,0);
+           switch (what){
+               case BY_BROADCAST:
+                   ((IComponentsView)iView).byBroadcastShowProgress(bundle.getInt("progress", 0));
+                   break;
+           }
+       }
+   }
 }
