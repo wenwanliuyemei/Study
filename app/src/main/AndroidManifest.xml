@@ -166,11 +166,19 @@
         <activity android:name=".components.FourComponentsActivity" />
 
         <service
-            android:name=".components.service.MsgService"
+            android:name=".components.service.MsgServiceByBinder"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="components.service.ByBinder"/>
+                <action android:name="components.service.ByBinder" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".components.service.MsgServiceByInterface"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="components.service.ByInterface" />
             </intent-filter>
         </service>
     </application>

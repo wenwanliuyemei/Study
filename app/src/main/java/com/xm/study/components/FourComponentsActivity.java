@@ -21,6 +21,8 @@ public class FourComponentsActivity extends BaseActivity implements IComponentsV
     TextView tvByBinder;
     @Bind(R.id.pb_by_binder)
     ProgressBar pbByBinder;
+    @Bind(R.id.pb_by_interface)
+    ProgressBar pbByInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class FourComponentsActivity extends BaseActivity implements IComponentsV
         ButterKnife.bind(this);
         iPresenter = new ComplComponentsPre(this, this);
         ((ComplComponentsPre) iPresenter).byBinderInit();
+        ((ComplComponentsPre) iPresenter).byInterfaceInit();
     }
 
 
@@ -37,6 +40,7 @@ public class FourComponentsActivity extends BaseActivity implements IComponentsV
         switch (view.getId()) {
             case R.id.tv_by_binder:
                 ((ComplComponentsPre) iPresenter).byBinderDonwload();
+                ((ComplComponentsPre) iPresenter).byInterfaceDonwload();
                 break;
         }
     }
@@ -57,14 +61,29 @@ public class FourComponentsActivity extends BaseActivity implements IComponentsV
     }
 
     @Override
-    public void byBinderUnbindDone() {
-        LogUtils.e("byBinderUnbindDone");
+    public void byInterfaceInitDone() {
+        LogUtils.e("byInterfaceInitDone");
+    }
+
+    @Override
+    public void byInterfaceDonwloadDone() {
+        LogUtils.e("byInterfaceDonwloadDone");
+    }
+
+    @Override
+    public void byInterfaceShowProgress(int progress) {
+        pbByInterface.setProgress(progress);
+    }
+
+    @Override
+    public void unbindDone() {
+        LogUtils.e("unbindDone");
     }
 
 
     @Override
     protected void onDestroy() {
-        ((ComplComponentsPre) iPresenter).byBinderUnbind();
+        ((ComplComponentsPre) iPresenter).unbind();
         super.onDestroy();
     }
 }

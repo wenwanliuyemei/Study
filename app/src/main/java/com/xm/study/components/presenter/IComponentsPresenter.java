@@ -13,5 +13,9 @@ public interface IComponentsPresenter extends IPresenter {
 
     void byBinderDonwload();
 
-    void byBinderUnbind();
+    void byInterfaceInit();
+
+    void byInterfaceDonwload();
+
+    void unbind();
 }

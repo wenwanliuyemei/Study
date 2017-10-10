@@ -15,6 +15,11 @@ public interface IComponentsView extends IView {
 
     void byBinderShowProgress(int progress);
 
-    void byBinderUnbindDone();
+    void byInterfaceInitDone();
 
+    void byInterfaceDonwloadDone();
+
+    void byInterfaceShowProgress(int progress);
+
+    void unbindDone();
 }

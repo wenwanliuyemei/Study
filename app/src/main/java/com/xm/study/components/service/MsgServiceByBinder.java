@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 
-public class MsgService extends Service {
+public class MsgServiceByBinder extends Service {
     /**
      * 进度条的最大值
      */
@@ -60,8 +60,8 @@ public class MsgService extends Service {
          *
          * @return
          */
-        public MsgService getService() {
-            return MsgService.this;
+        public MsgServiceByBinder getService() {
+            return MsgServiceByBinder.this;
         }
     }
 }
