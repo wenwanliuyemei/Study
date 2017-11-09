@@ -40,6 +40,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     TextView tvBinTreeSort;
     @Bind(R.id.tv_count_1_in_binary)
     TextView tvCount1InBinary;
+    @Bind(R.id.tv_bin_tree_is_same)
+    TextView tvBinTreeIsSame;
 
     private IDataAlgorithmPresenter iDataAlgorithmPresenter;
 
@@ -93,6 +95,12 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void isSameTreeDone(boolean isSameTree) {
+        LogUtils.e(TAG, "binTreeSortDone");
+        tvBinTreeIsSame.setText(isSameTree + "");
+    }
+
+    @Override
     public void countOneInBinaryDone() {
         LogUtils.e(TAG, "countOneInBinaryDone");
     }
@@ -105,7 +113,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     @OnClick({R.id.tv_data_algorithm_insert_sort_1, R.id.tv_data_algorithm_bubble_sort_1,
             R.id.tv_data_algorithm_bubble_sort_2, R.id.tv_data_algorithm_quick_sort,
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
-            R.id.tv_data_algorithm_sequential_sort, R.id.tv_bin_tree_sort, R.id.tv_count_1_in_binary})
+            R.id.tv_data_algorithm_sequential_sort, R.id.tv_bin_tree_sort, R.id.tv_bin_tree_is_same,
+            R.id.tv_count_1_in_binary})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_data_algorithm_insert_sort_1:
@@ -133,11 +142,14 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
             case R.id.tv_bin_tree_sort:
                 iDataAlgorithmPresenter.binTreeSort(new int[]{5, 3, 1, 7, 4, 8, 2});
                 break;
+            case R.id.tv_bin_tree_is_same:
+                iDataAlgorithmPresenter.isSameTree(new int[]{5, 3, 1, 7, 4, 8, 2}, new int[]{5, 3, 1, 7, 4, 8, 2});
+                break;
             case R.id.tv_count_1_in_binary:
 //                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);
 //                iDataAlgorithmPresenter.maxSum(new int[]{2});
 //                iDataAlgorithmPresenter.maxSum(new int[]{5, 3});
-                iDataAlgorithmPresenter.maxSum(new int[]{5, 3, 1, 7, 4, 8, 2,10,3,11,34});
+                iDataAlgorithmPresenter.maxSum(new int[]{5, 3, 1, 7, 4, 8, 2, 10, 3, 11, 34});
                 break;
         }
     }

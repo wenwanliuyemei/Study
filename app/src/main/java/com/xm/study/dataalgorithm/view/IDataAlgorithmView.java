@@ -1,28 +1,34 @@
 package com.xm.study.dataalgorithm.view;
 
+import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
+
 /**
  * Created by zhangxiumei on 2017/3/13.
  */
 
 public interface IDataAlgorithmView {
 
-    public void insertSortDone();
+    void insertSortDone();
 
-    public void bubbleSort1Done();
+    void bubbleSort1Done();
 
-    public void bubbleSort2Done();
+    void bubbleSort2Done();
 
-    public void quickSortDone();
+    void quickSortDone();
 
-    public void selectionSortDone();
+    void selectionSortDone();
 
-    public void shellSortDone();
+    void shellSortDone();
 
-    public void sequentialSortDone();
+    void sequentialSortDone();
 
     void binTreeSortDone();
+
+    void isSameTreeDone(boolean isSameTree);
 
     void countOneInBinaryDone();
 
     void maxSumDone();
+
+
 }

@@ -1,28 +1,34 @@
 package com.xm.study.dataalgorithm.presenter;
 
+import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
+
 /**
  * Created by zhangxiumei on 2017/3/13.
  */
 
 public interface IDataAlgorithmPresenter {
 
-    public void insertSort(int[] arr);
+    void insertSort(int[] arr);
 
-    public void bubbleSort1(int[] arr);
+    void bubbleSort1(int[] arr);
 
-    public void bubbleSort2(int[] arr);
+    void bubbleSort2(int[] arr);
 
-    public void quickSort(int[] arr);
+    void quickSort(int[] arr);
 
-    public void selectionSort(int[] arr);
+    void selectionSort(int[] arr);
 
-    public void shellSort(int[] arr);
+    void shellSort(int[] arr);
 
-    public void sequentialSort(int key, int[] arr);
+    void sequentialSort(int key, int[] arr);
 
     void binTreeSort(int[] arr);
+
+    void isSameTree(int[] arrPq, int[] arrQ);
 
     void countOneInBinary(int num);
 
     void maxSum(int[] arrInt);
+
+
 }

@@ -76,22 +76,21 @@
                 android:text="@string/data_algorithm_bin_tree_sort" />
 
             <TextView
+                android:id="@+id/tv_bin_tree_is_same"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/data_algorithm_bin_tree_is_same" />
+
+            <TextView
                 android:id="@+id/tv_count_1_in_binary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/data_algorithm_count_1_in_binary" />
 
-            <!--
 
-             <TextView
-                 android:id="@+id/tv_bin_tree_sort_post"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="20dp"
-                 android:text="@string/data_algorithm_bin_tree_sort_post" />
-
-            <TextView
+            <!--<TextView
                 android:id="@+id/tv_update_array"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

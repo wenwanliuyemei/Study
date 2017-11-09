@@ -3,10 +3,8 @@ package com.xm.study.dataalgorithm.presenter;
 import android.content.Context;
 import android.util.Log;
 
-import com.xm.study.dataalgorithm.model.bintree.BinTreeInvert;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
-import com.xm.study.dataalgorithm.model.bintree.BinTreeTraverse;
-import com.xm.study.dataalgorithm.model.bintree.RightSideView;
+import com.xm.study.dataalgorithm.model.bintree.BinTreeUtils;
 import com.xm.study.dataalgorithm.model.count.CountOneInBinary;
 import com.xm.study.dataalgorithm.model.count.MaxSum;
 import com.xm.study.dataalgorithm.model.sort.BubbleSort;
@@ -25,7 +23,6 @@ import java.util.Map;
 /**
  * Created by zhangxiumei on 2017/3/13.
  */
-
 public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
 
     private final String TAG = this.getClass().getSimpleName();
@@ -90,23 +87,32 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
 
     @Override
     public void binTreeSort(int[] arr) {
-        BinTreeTraverse binTree = new BinTreeTraverse();
-        List<BinTreeNode> nodeList = binTree.createBinTree(arr);
+//        BinTreeUtils binTree = new BinTreeUtils();
+        List<BinTreeNode> nodeList = BinTreeUtils.createBinTree(arr);
         // nodeList中第0个索引处的值即为根节点
         BinTreeNode root = nodeList.get(0);
         LogUtils.e("先序遍历：");
-        BinTreeTraverse.preOrderTraverse(root);
+        BinTreeUtils.preOrderTraverse(root);
         LogUtils.e("中序遍历：");
-        BinTreeTraverse.inOrderTraverse(root);
+        BinTreeUtils.inOrderTraverse(root);
         LogUtils.e("后序遍历：");
-        BinTreeTraverse.postOrderTraverse(root);
-        BinTreeNode binTreeNode = BinTreeInvert.invertTree(root);
+        BinTreeUtils.postOrderTraverse(root);
+        BinTreeNode binTreeNode = BinTreeUtils.invertTree(root);
         LogUtils.e("invert：" + binTreeNode.toString());
-        List<Integer> rightSideViewList= RightSideView.rightSideView(root);
+        List<Integer> rightSideViewList = BinTreeUtils.rightSideView(root);
         LogUtils.e("rightSideViewList：" + rightSideViewList.toString());
-        List<Integer> leftSideViewList= RightSideView.leftSideView(root);
+        List<Integer> leftSideViewList = BinTreeUtils.leftSideView(root);
         LogUtils.e("leftSideViewList：" + leftSideViewList.toString());
         iDataAlgorithmView.binTreeSortDone();
+    }
+
+    @Override
+    public void isSameTree(int[] arrP, int[] arrQ) {
+        List<BinTreeNode> nodeListP = BinTreeUtils.createBinTree(arrP);
+        BinTreeNode p = nodeListP.get(0);
+        List<BinTreeNode> nodeListQ = BinTreeUtils.createBinTree(arrQ);
+        BinTreeNode q = nodeListQ.get(0);
+        iDataAlgorithmView.isSameTreeDone(BinTreeUtils.isSameTree(p, q));
     }
 
     @Override
@@ -117,10 +123,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
 
     @Override
     public void maxSum(int[] arrInt) {
-        int[] arrIntTemp=arrInt;
+        int[] arrIntTemp = arrInt;
 //        LogUtils.e("maxSum=" + MaxSum.maxSum(arrInt));
-        Map<Integer,List<Object>> map=MaxSum.maxSum2(arrIntTemp);
-        LogUtils.e("map="+map);
+        Map<Integer, List<Object>> map = MaxSum.maxSum2(arrIntTemp);
+        LogUtils.e("map=" + map);
         iDataAlgorithmView.maxSumDone();
     }
+
+
 }
