@@ -26,6 +26,8 @@ public interface IDataAlgorithmView {
 
     void isSameTreeDone(boolean isSameTree);
 
+    void isSymmetricDone(boolean isSymmetric);
+
     void countOneInBinaryDone();
 
     void maxSumDone();

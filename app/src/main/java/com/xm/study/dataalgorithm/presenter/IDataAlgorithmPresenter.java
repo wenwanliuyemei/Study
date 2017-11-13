@@ -26,6 +26,8 @@ public interface IDataAlgorithmPresenter {
 
     void isSameTree(int[] arrPq, int[] arrQ);
 
+    void isSymmetric(int[] arr);
+
     void countOneInBinary(int num);
 
     void maxSum(int[] arrInt);

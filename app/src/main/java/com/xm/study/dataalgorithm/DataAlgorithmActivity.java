@@ -42,6 +42,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     TextView tvCount1InBinary;
     @Bind(R.id.tv_bin_tree_is_same)
     TextView tvBinTreeIsSame;
+    @Bind(R.id.tv_bin_tree_is_symmetric)
+    TextView tvBinTreeIsSymmetric;
 
     private IDataAlgorithmPresenter iDataAlgorithmPresenter;
 
@@ -101,6 +103,12 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void isSymmetricDone(boolean isSymmetric) {
+        LogUtils.e(TAG, "binTreeSortDone");
+        tvBinTreeIsSymmetric.setText(isSymmetric + "");
+    }
+
+    @Override
     public void countOneInBinaryDone() {
         LogUtils.e(TAG, "countOneInBinaryDone");
     }
@@ -114,7 +122,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
             R.id.tv_data_algorithm_bubble_sort_2, R.id.tv_data_algorithm_quick_sort,
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
             R.id.tv_data_algorithm_sequential_sort, R.id.tv_bin_tree_sort, R.id.tv_bin_tree_is_same,
-            R.id.tv_count_1_in_binary})
+            R.id.tv_bin_tree_is_symmetric, R.id.tv_count_1_in_binary})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_data_algorithm_insert_sort_1:
@@ -143,7 +151,10 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 iDataAlgorithmPresenter.binTreeSort(new int[]{5, 3, 1, 7, 4, 8, 2});
                 break;
             case R.id.tv_bin_tree_is_same:
-                iDataAlgorithmPresenter.isSameTree(new int[]{5, 3, 1, 7, 4, 8, 2}, new int[]{5, 3, 1, 7, 4, 8, 2});
+                iDataAlgorithmPresenter.isSameTree(new int[]{5, 3, 1, 7, 4, 8, 2}, new int[]{5, 3, 1, 7, 4, 8, 3});
+                break;
+            case R.id.tv_bin_tree_is_symmetric:
+                iDataAlgorithmPresenter.isSymmetric(new int[]{1, 2, 2, 3, 4, 7, 3});
                 break;
             case R.id.tv_count_1_in_binary:
 //                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);

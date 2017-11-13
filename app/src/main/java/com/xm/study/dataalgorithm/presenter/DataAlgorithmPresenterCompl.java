@@ -116,6 +116,13 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     }
 
     @Override
+    public void isSymmetric(int[] arr) {
+        List<BinTreeNode> binTreeNodeList = BinTreeUtils.createBinTree(arr);
+        BinTreeNode binTreeNodeRoot=binTreeNodeList.get(0);
+        iDataAlgorithmView.isSymmetricDone(BinTreeUtils.isSymmetric(binTreeNodeRoot));
+    }
+
+    @Override
     public void countOneInBinary(int num) {
         CountOneInBinary.hammingWeight(num);//12
         iDataAlgorithmView.countOneInBinaryDone();

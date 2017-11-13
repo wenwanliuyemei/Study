@@ -251,17 +251,73 @@ public class BinTreeUtils {
      * </pre>
      */
     public static boolean isSameTree(BinTreeNode p, BinTreeNode q) {
-        if (p == null && q == null) {
-            return true;
-        }
-        if (p != null && q == null) {
-            return false;
-        }
-        if (p == null && q != null) {
-            return true;
-        }
-        return p.data == q.data && isSameTree(p.leftChild, q.leftChild)
-                && isSameTree(p.rightChild, q.rightChild);
+        return isSameTree(p, q, 1);
     }
 
+    public static boolean isSameTree(BinTreeNode left, BinTreeNode right, int which) {
+        if (left == null && right == null) {
+            return true;
+        }
+        if (left != null && right == null) {
+            return false;
+        }
+        if (left == null && right != null) {
+            return true;
+        }
+        boolean result = false;
+        switch (which) {
+            case 1:
+                result = left.data == right.data && isSameTree(left.leftChild, right.leftChild, which)
+                        && isSameTree(left.rightChild, right.rightChild, which);
+                break;
+            case 2:
+                result = left.data == right.data && isSameTree(left.leftChild, right.rightChild, which)
+                        && isSameTree(left.rightChild, right.leftChild, which);
+                break;
+        }
+        return result;
+    }
+
+    /**
+     * <pre>
+     * 原题
+     * Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+     * For example, this binary tree is symmetric:
+     *
+     *     1
+     *    / \
+     *   2   2
+     *  / \ / \
+     * 3  4 4  3
+     *
+     * 　　But the following is not:
+     *
+     *   1
+     *  / \
+     * 2   2
+     * \   \
+     * 3    3
+     *
+     * Note:
+     * Bonus points if you could solve it both recursively and iteratively.
+     * 题目大意
+     * 给定一棵树，判断它是否是对称的。即树的左子树是否是其右子树的镜像。
+     *
+     * 解题思路
+     * 使用递归进行求解，先判断左右子结点是否相等，不等就返回false，相等就将左子结点的左子树与
+     * 右子结果的右子结点进行比较操作，同时将左子结点的左子树与右子结点的左子树进行比较，只有两
+     * 个同时为真是才返回true，否则返回false。
+     * </pre>
+     *
+     * @param root
+     * @return
+     */
+    public static boolean isSymmetric(BinTreeNode root) {
+
+        if (root == null) {
+            return true;
+        } else {
+            return isSameTree(root.leftChild, root.rightChild, 2);
+        }
+    }
 }
