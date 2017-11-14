@@ -12,6 +12,8 @@ import com.xm.study.dataalgorithm.presenter.IDataAlgorithmPresenter;
 import com.xm.study.dataalgorithm.view.IDataAlgorithmView;
 import com.xm.utils.LogUtils;
 
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -44,6 +46,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     TextView tvBinTreeIsSame;
     @Bind(R.id.tv_bin_tree_is_symmetric)
     TextView tvBinTreeIsSymmetric;
+    @Bind(R.id.tv_bin_tree_level_order)
+    TextView tvBinTreeLevelOrder;
 
     private IDataAlgorithmPresenter iDataAlgorithmPresenter;
 
@@ -109,6 +113,21 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void levelOrderDone(List<List<Integer>> lists) {
+        LogUtils.e(TAG, "levelOrderDone");
+        StringBuffer stringBuffer=new StringBuffer();
+        for (int i=0;i<lists.size();i++){
+            for (int j=0;j<lists.get(i).size();j++){
+                stringBuffer.append(j);
+                stringBuffer.append(":");
+                stringBuffer.append(lists.get(i).get(j));
+                stringBuffer.append("\n");
+            }
+        }
+        tvBinTreeLevelOrder.setText(stringBuffer.toString());
+    }
+
+    @Override
     public void countOneInBinaryDone() {
         LogUtils.e(TAG, "countOneInBinaryDone");
     }
@@ -122,7 +141,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
             R.id.tv_data_algorithm_bubble_sort_2, R.id.tv_data_algorithm_quick_sort,
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
             R.id.tv_data_algorithm_sequential_sort, R.id.tv_bin_tree_sort, R.id.tv_bin_tree_is_same,
-            R.id.tv_bin_tree_is_symmetric, R.id.tv_count_1_in_binary})
+            R.id.tv_bin_tree_is_symmetric,R.id.tv_bin_tree_level_order, R.id.tv_count_1_in_binary})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_data_algorithm_insert_sort_1:
@@ -155,6 +174,9 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 break;
             case R.id.tv_bin_tree_is_symmetric:
                 iDataAlgorithmPresenter.isSymmetric(new int[]{1, 2, 2, 3, 4, 7, 3});
+                break;
+            case R.id.tv_bin_tree_level_order:
+                iDataAlgorithmPresenter.levelOrder(new int[]{1, 2, 2, 3, 4, 7, 3});
                 break;
             case R.id.tv_count_1_in_binary:
 //                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);

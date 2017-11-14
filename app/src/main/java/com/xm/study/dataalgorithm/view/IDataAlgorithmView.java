@@ -2,6 +2,8 @@ package com.xm.study.dataalgorithm.view;
 
 import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
 
+import java.util.List;
+
 /**
  * Created by zhangxiumei on 2017/3/13.
  */
@@ -28,9 +30,9 @@ public interface IDataAlgorithmView {
 
     void isSymmetricDone(boolean isSymmetric);
 
+    void levelOrderDone(List<List<Integer>> lists);
+
     void countOneInBinaryDone();
 
     void maxSumDone();
-
-
 }

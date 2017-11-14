@@ -28,6 +28,8 @@ public interface IDataAlgorithmPresenter {
 
     void isSymmetric(int[] arr);
 
+    void levelOrder(int[] arr);
+
     void countOneInBinary(int num);
 
     void maxSum(int[] arrInt);

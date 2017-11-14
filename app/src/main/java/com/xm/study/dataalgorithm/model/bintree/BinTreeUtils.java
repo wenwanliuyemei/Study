@@ -2,6 +2,7 @@ package com.xm.study.dataalgorithm.model.bintree;
 
 import com.xm.utils.LogUtils;
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,6 +13,11 @@ import java.util.List;
  */
 
 public class BinTreeUtils {
+
+    public static BinTreeNode getBinTreeNode(int[] arr) {
+        List<BinTreeNode> binTreeNodeList = BinTreeUtils.createBinTree(arr);
+        return binTreeNodeList.get(0);
+    }
 
     /**
      * 1、先add到list。
@@ -319,5 +325,69 @@ public class BinTreeUtils {
         } else {
             return isSameTree(root.leftChild, root.rightChild, 2);
         }
+    }
+
+
+    /**
+     * <pre>
+     * 原题
+     * Given a binary tree, return the level order traversal of its nodes’ values.
+     * (ie, from left to right, level by level).
+     * For example:
+     * Given binary tree {3,9,20,#,#,15,7},
+     *
+     *    3
+     *   / \
+     *  9  20
+     *    /  \
+     *   15   7
+     *
+     * return its level order traversal as:
+     *
+     * [
+     *  [3],
+     *  [9,20],
+     *  [15,7]
+     * ]
+     * 题目大意
+     * 给定一个二叉树，输出它的每一层的结点。
+     *
+     * 解题思路
+     * 使用两队列，一个保存当前处理的层，一个保存下一次要处理的层。只到每一层都处理完。
+     * </pre>
+     *
+     * @param root
+     * @return
+     */
+    public static List<List<Integer>> levelOrder(BinTreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        Deque<BinTreeNode> cur = new LinkedList<>();
+        Deque<BinTreeNode> sub = new LinkedList<>();
+        Deque<BinTreeNode> exc;
+        BinTreeNode node;
+        cur.addLast(root);
+        while (!cur.isEmpty()) {
+            List<Integer> layout = new LinkedList<>();
+            while (!cur.isEmpty()) {
+                node = cur.removeFirst();
+                layout.add(node.data);
+
+                if (node.leftChild != null) {
+                    sub.addLast(node.leftChild);
+                }
+
+                if (node.rightChild != null) {
+                    sub.addLast(node.rightChild);
+                }
+            }
+            exc = cur;
+            cur = sub;
+            sub = exc;
+            result.add(layout);
+        }
+        return result;
     }
 }

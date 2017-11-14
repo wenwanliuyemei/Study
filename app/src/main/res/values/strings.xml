@@ -87,6 +87,7 @@
     <string name="data_algorithm_bin_tree_sort">数据算法--二叉树--排序</string>
     <string name="data_algorithm_bin_tree_is_same">数据算法--二叉树--2个二叉树是否相等</string>
     <string name="data_algorithm_bin_tree_is_symmetric">数据算法--二叉树--二叉树是否对称</string>
+    <string name="data_algorithm_bin_tree_level_order">数据算法--二叉树--按层级输出</string>
 
     <string name="data_algorithm_count_1_in_binary">数据算法--count--二进制中的1的个数</string>
 

@@ -88,9 +88,7 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     @Override
     public void binTreeSort(int[] arr) {
 //        BinTreeUtils binTree = new BinTreeUtils();
-        List<BinTreeNode> nodeList = BinTreeUtils.createBinTree(arr);
-        // nodeList中第0个索引处的值即为根节点
-        BinTreeNode root = nodeList.get(0);
+        BinTreeNode root = BinTreeUtils.getBinTreeNode(arr);
         LogUtils.e("先序遍历：");
         BinTreeUtils.preOrderTraverse(root);
         LogUtils.e("中序遍历：");
@@ -108,18 +106,21 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
 
     @Override
     public void isSameTree(int[] arrP, int[] arrQ) {
-        List<BinTreeNode> nodeListP = BinTreeUtils.createBinTree(arrP);
-        BinTreeNode p = nodeListP.get(0);
-        List<BinTreeNode> nodeListQ = BinTreeUtils.createBinTree(arrQ);
-        BinTreeNode q = nodeListQ.get(0);
+        BinTreeNode p = BinTreeUtils.getBinTreeNode(arrP);
+        BinTreeNode q = BinTreeUtils.getBinTreeNode(arrQ);
         iDataAlgorithmView.isSameTreeDone(BinTreeUtils.isSameTree(p, q));
     }
 
     @Override
     public void isSymmetric(int[] arr) {
-        List<BinTreeNode> binTreeNodeList = BinTreeUtils.createBinTree(arr);
-        BinTreeNode binTreeNodeRoot=binTreeNodeList.get(0);
+        BinTreeNode binTreeNodeRoot = BinTreeUtils.getBinTreeNode(arr);
         iDataAlgorithmView.isSymmetricDone(BinTreeUtils.isSymmetric(binTreeNodeRoot));
+    }
+
+    @Override
+    public void levelOrder(int[] arr) {
+        BinTreeNode binTreeNodeRoot = BinTreeUtils.getBinTreeNode(arr);
+        iDataAlgorithmView.levelOrderDone(BinTreeUtils.levelOrder(binTreeNodeRoot));
     }
 
     @Override
@@ -136,6 +137,4 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         LogUtils.e("map=" + map);
         iDataAlgorithmView.maxSumDone();
     }
-
-
 }
