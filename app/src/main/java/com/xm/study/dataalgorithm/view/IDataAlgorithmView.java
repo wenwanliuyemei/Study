@@ -30,7 +30,9 @@ public interface IDataAlgorithmView {
 
     void isSymmetricDone(boolean isSymmetric);
 
-    void levelOrderDone(List<List<Integer>> lists);
+    void levelOrderDone(String text);
+
+    void zigzagLevelOrderDone(String text);
 
     void countOneInBinaryDone();
 

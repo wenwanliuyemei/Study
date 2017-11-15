@@ -48,6 +48,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     TextView tvBinTreeIsSymmetric;
     @Bind(R.id.tv_bin_tree_level_order)
     TextView tvBinTreeLevelOrder;
+    @Bind(R.id.tv_bin_tree_level_order_z)
+    TextView tvBinTreeLevelOrderZ;
 
     private IDataAlgorithmPresenter iDataAlgorithmPresenter;
 
@@ -113,18 +115,16 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
-    public void levelOrderDone(List<List<Integer>> lists) {
+    public void levelOrderDone(String text) {
         LogUtils.e(TAG, "levelOrderDone");
-        StringBuffer stringBuffer=new StringBuffer();
-        for (int i=0;i<lists.size();i++){
-            for (int j=0;j<lists.get(i).size();j++){
-                stringBuffer.append(j);
-                stringBuffer.append(":");
-                stringBuffer.append(lists.get(i).get(j));
-                stringBuffer.append("\n");
-            }
-        }
-        tvBinTreeLevelOrder.setText(stringBuffer.toString());
+        tvBinTreeLevelOrder.setText(text);
+    }
+
+
+    @Override
+    public void zigzagLevelOrderDone(String text) {
+        LogUtils.e(TAG, "zigzagLevelOrderDone");
+        tvBinTreeLevelOrderZ.setText(text);
     }
 
     @Override
@@ -141,7 +141,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
             R.id.tv_data_algorithm_bubble_sort_2, R.id.tv_data_algorithm_quick_sort,
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
             R.id.tv_data_algorithm_sequential_sort, R.id.tv_bin_tree_sort, R.id.tv_bin_tree_is_same,
-            R.id.tv_bin_tree_is_symmetric,R.id.tv_bin_tree_level_order, R.id.tv_count_1_in_binary})
+            R.id.tv_bin_tree_is_symmetric, R.id.tv_bin_tree_level_order, R.id.tv_bin_tree_level_order_z,
+            R.id.tv_count_1_in_binary})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_data_algorithm_insert_sort_1:
@@ -177,6 +178,9 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 break;
             case R.id.tv_bin_tree_level_order:
                 iDataAlgorithmPresenter.levelOrder(new int[]{1, 2, 2, 3, 4, 7, 3});
+                break;
+            case R.id.tv_bin_tree_level_order_z:
+                iDataAlgorithmPresenter.zigzagLevelOrder(new int[]{5, 3, 1, 7, 4, 8, 2});
                 break;
             case R.id.tv_count_1_in_binary:
 //                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);
