@@ -129,6 +129,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     }
 
     @Override
+    public void maxDepth(int[] arr) {
+        BinTreeNode binTreeNodeRoot = BinTreeUtils.getBinTreeNode(arr);
+        iDataAlgorithmView.maxDepthDone(BinTreeUtils.maxDepth(binTreeNodeRoot));
+    }
+
+    @Override
     public void countOneInBinary(int num) {
         CountOneInBinary.hammingWeight(num);//12
         iDataAlgorithmView.countOneInBinaryDone();

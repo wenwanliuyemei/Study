@@ -12,8 +12,6 @@ import com.xm.study.dataalgorithm.presenter.IDataAlgorithmPresenter;
 import com.xm.study.dataalgorithm.view.IDataAlgorithmView;
 import com.xm.utils.LogUtils;
 
-import java.util.List;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -50,6 +48,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     TextView tvBinTreeLevelOrder;
     @Bind(R.id.tv_bin_tree_level_order_z)
     TextView tvBinTreeLevelOrderZ;
+    @Bind(R.id.tv_bin_tree_max_depth)
+    TextView tvBinTreeMaxDepth;
 
     private IDataAlgorithmPresenter iDataAlgorithmPresenter;
 
@@ -128,6 +128,12 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void maxDepthDone(int depth) {
+        LogUtils.e(TAG, "maxDepthDone");
+        tvBinTreeMaxDepth.setText(depth + "");
+    }
+
+    @Override
     public void countOneInBinaryDone() {
         LogUtils.e(TAG, "countOneInBinaryDone");
     }
@@ -142,7 +148,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
             R.id.tv_data_algorithm_sequential_sort, R.id.tv_bin_tree_sort, R.id.tv_bin_tree_is_same,
             R.id.tv_bin_tree_is_symmetric, R.id.tv_bin_tree_level_order, R.id.tv_bin_tree_level_order_z,
-            R.id.tv_count_1_in_binary})
+            R.id.tv_bin_tree_max_depth, R.id.tv_count_1_in_binary})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_data_algorithm_insert_sort_1:
@@ -181,6 +187,9 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 break;
             case R.id.tv_bin_tree_level_order_z:
                 iDataAlgorithmPresenter.zigzagLevelOrder(new int[]{5, 3, 1, 7, 4, 8, 2});
+                break;
+            case R.id.tv_bin_tree_max_depth:
+                iDataAlgorithmPresenter.maxDepth(new int[]{5, 3, 1, 7, 4, 8, 2, 1});
                 break;
             case R.id.tv_count_1_in_binary:
 //                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);

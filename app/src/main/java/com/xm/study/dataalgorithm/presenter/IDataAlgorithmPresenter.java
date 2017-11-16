@@ -32,6 +32,8 @@ public interface IDataAlgorithmPresenter {
 
     void zigzagLevelOrder(int[] arr);
 
+    void maxDepth(int arr[]);
+
     void countOneInBinary(int num);
 
     void maxSum(int[] arrInt);

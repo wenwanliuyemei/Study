@@ -104,6 +104,16 @@
                 android:text="@string/data_algorithm_bin_tree_level_order_z" />
 
             <TextView
+                android:id="@+id/tv_bin_tree_max_depth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/data_algorithm_bin_tree_max_depth" />
+
+
+            void maxDepth(int arr[]);
+
+            <TextView
                 android:id="@+id/tv_count_1_in_binary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

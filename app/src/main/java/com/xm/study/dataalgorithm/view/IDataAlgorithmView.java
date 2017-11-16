@@ -34,6 +34,8 @@ public interface IDataAlgorithmView {
 
     void zigzagLevelOrderDone(String text);
 
+    void maxDepthDone(int depth);
+
     void countOneInBinaryDone();
 
     void maxSumDone();
