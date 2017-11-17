@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.xm.study.R;
 import com.xm.study.base.BaseActivity;
+import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
 import com.xm.study.dataalgorithm.presenter.DataAlgorithmPresenterCompl;
 import com.xm.study.dataalgorithm.presenter.IDataAlgorithmPresenter;
 import com.xm.study.dataalgorithm.view.IDataAlgorithmView;
@@ -50,6 +51,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     TextView tvBinTreeLevelOrderZ;
     @Bind(R.id.tv_bin_tree_max_depth)
     TextView tvBinTreeMaxDepth;
+    @Bind(R.id.tv_bin_tree_create)
+    TextView tvBinTreeCreate;
 
     private IDataAlgorithmPresenter iDataAlgorithmPresenter;
 
@@ -139,6 +142,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void buildTreeDone(BinTreeNode binTreeNode) {
+        LogUtils.e(TAG, "countOneInBinaryDone");
+    }
+
+    @Override
     public void maxSumDone() {
         LogUtils.e(TAG, "maxSumDone");
     }
@@ -148,7 +156,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
             R.id.tv_data_algorithm_sequential_sort, R.id.tv_bin_tree_sort, R.id.tv_bin_tree_is_same,
             R.id.tv_bin_tree_is_symmetric, R.id.tv_bin_tree_level_order, R.id.tv_bin_tree_level_order_z,
-            R.id.tv_bin_tree_max_depth, R.id.tv_count_1_in_binary})
+            R.id.tv_bin_tree_max_depth, R.id.tv_bin_tree_create, R.id.tv_count_1_in_binary})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_data_algorithm_insert_sort_1:
@@ -190,6 +198,13 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 break;
             case R.id.tv_bin_tree_max_depth:
                 iDataAlgorithmPresenter.maxDepth(new int[]{5, 3, 1, 7, 4, 8, 2, 1});
+                break;
+            case R.id.tv_bin_tree_create:
+                //new int[]{5, 3, 1, 7, 4, 8, 2}
+                //先序遍历：{5,3,7,4,1,8,2}
+                //中序遍历：{7,3,4,5,8,1,2}
+                //后序遍历：{7,4,3,8,2,1,5}
+                iDataAlgorithmPresenter.buildTree(new int[]{5, 3, 7, 4, 1, 8, 2}, new int[]{7, 3, 4, 5, 8, 1, 2});
                 break;
             case R.id.tv_count_1_in_binary:
 //                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);

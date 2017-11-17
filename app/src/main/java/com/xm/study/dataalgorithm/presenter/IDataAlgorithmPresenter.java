@@ -34,6 +34,8 @@ public interface IDataAlgorithmPresenter {
 
     void maxDepth(int arr[]);
 
+    void buildTree(int[] preorder, int[] inorder);
+
     void countOneInBinary(int num);
 
     void maxSum(int[] arrInt);

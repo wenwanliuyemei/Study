@@ -135,6 +135,11 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     }
 
     @Override
+    public void buildTree(int[] preorder, int[] inorder) {
+        iDataAlgorithmView.buildTreeDone(BinTreeUtils.buildTree(preorder,inorder));
+    }
+
+    @Override
     public void countOneInBinary(int num) {
         CountOneInBinary.hammingWeight(num);//12
         iDataAlgorithmView.countOneInBinaryDone();
