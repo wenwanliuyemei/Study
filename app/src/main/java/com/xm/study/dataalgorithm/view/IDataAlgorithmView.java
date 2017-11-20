@@ -38,7 +38,11 @@ public interface IDataAlgorithmView {
 
     void countOneInBinaryDone();
 
-    void buildTreeDone(BinTreeNode binTreeNode);
+    void buildTreePreInDone(BinTreeNode binTreeNode);
+
+    void buildTreeNullDone(BinTreeNode binTreeNode);
+
+    void buildTreeInPosstDone(BinTreeNode binTreeNode);
 
     void maxSumDone();
 }

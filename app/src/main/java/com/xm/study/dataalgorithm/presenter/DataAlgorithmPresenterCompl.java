@@ -135,8 +135,18 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     }
 
     @Override
-    public void buildTree(int[] preorder, int[] inorder) {
-        iDataAlgorithmView.buildTreeDone(BinTreeUtils.buildTree(preorder,inorder));
+    public void buildTreePreIn(int[] preorder, int[] inorder) {
+        iDataAlgorithmView.buildTreePreInDone(BinTreeUtils.buildTree(preorder,inorder,1));
+    }
+
+    @Override
+    public void buildTreeInPosst(int[] inorder, int[] postorder) {
+        iDataAlgorithmView.buildTreeInPosstDone(BinTreeUtils.buildTree(inorder,postorder,2));
+    }
+
+    @Override
+    public void buildTreeNull(int[] inorder, int[] postorder) {
+        iDataAlgorithmView.buildTreeNullDone(BinTreeUtils.buildTree(inorder,postorder,3));
     }
 
     @Override

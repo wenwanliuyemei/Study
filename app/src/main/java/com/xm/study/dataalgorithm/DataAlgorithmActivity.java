@@ -142,8 +142,19 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
-    public void buildTreeDone(BinTreeNode binTreeNode) {
-        LogUtils.e(TAG, "countOneInBinaryDone");
+    public void buildTreePreInDone(BinTreeNode binTreeNode) {
+        LogUtils.e(TAG, "buildTreePreInDone");
+    }
+
+    @Override
+    public void buildTreeNullDone(BinTreeNode binTreeNode) {
+        LogUtils.e(TAG, "buildTreeNullDone");
+        tvBinTreeCreate.setText(binTreeNode + "");
+    }
+
+    @Override
+    public void buildTreeInPosstDone(BinTreeNode binTreeNode) {
+        LogUtils.e(TAG, "buildTreeInPosstDone");
     }
 
     @Override
@@ -204,7 +215,9 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 //先序遍历：{5,3,7,4,1,8,2}
                 //中序遍历：{7,3,4,5,8,1,2}
                 //后序遍历：{7,4,3,8,2,1,5}
-                iDataAlgorithmPresenter.buildTree(new int[]{5, 3, 7, 4, 1, 8, 2}, new int[]{7, 3, 4, 5, 8, 1, 2});
+                iDataAlgorithmPresenter.buildTreePreIn(new int[]{5, 3, 7, 4, 1, 8, 2}, new int[]{7, 3, 4, 5, 8, 1, 2});
+                iDataAlgorithmPresenter.buildTreeInPosst(new int[]{7, 3, 4, 5, 8, 1, 2}, new int[]{7, 4, 3, 8, 2, 1, 5});
+                iDataAlgorithmPresenter.buildTreeNull(new int[]{7, 3, 4, 5, 8, 1, 2}, new int[]{7, 4, 3, 8, 2, 1, 5});
                 break;
             case R.id.tv_count_1_in_binary:
 //                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);

@@ -34,7 +34,11 @@ public interface IDataAlgorithmPresenter {
 
     void maxDepth(int arr[]);
 
-    void buildTree(int[] preorder, int[] inorder);
+    void buildTreePreIn(int[] preorder, int[] inorder);
+
+    void buildTreeInPosst(int[] inorder, int[] postorder);
+
+    void buildTreeNull(int[] inorder, int[] postorder);
 
     void countOneInBinary(int num);
 

@@ -510,6 +510,30 @@ public class BinTreeUtils {
 
 
     /**
+     * @param one
+     * @param two
+     * @param which 1给定前序、中序；2给定中序、后序
+     * @return
+     */
+    public static BinTreeNode buildTree(int[] one, int[] two, int which) {
+        // 参数校验
+        if (one == null || two == null || one.length == 0
+                || one.length != two.length) {
+            return null;
+        }
+        switch (which) {
+            case 1:
+                return solvePreIn(one, 0, one.length - 1, two, 0, two.length - 1);
+            case 2:
+                // 构建二叉树
+                return solveInPosst(one, 0, one.length - 1, two, 0, two.length - 1);
+            default:
+                return null;
+        }
+    }
+
+    /**
+     * 构建二叉树，数据输入的正确性由输入数据自己保证
      * <pre>
      * Given preorder and inorder traversal of a tree, construct the binary tree.
      *
@@ -526,22 +550,6 @@ public class BinTreeUtils {
      * idx将中序遍历序列分成左右子树，对前序遍历序列也一样，可进行递归操作
      * </pre>
      *
-     * @param preorder
-     * @param inorder
-     * @return
-     */
-    public static BinTreeNode buildTree(int[] preorder, int[] inorder) {
-        // 参数校验
-        if (preorder == null || inorder == null || preorder.length == 0
-                || preorder.length != inorder.length) {
-            return null;
-        }
-        return solve(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
-    }
-
-    /**
-     * 构建二叉树，数据输入的正确性由输入数据自己保证
-     *
      * @param preorder 先序遍历的结果
      * @param x        先序遍历的开始位置
      * @param y        先序遍历的结束位置
@@ -550,7 +558,7 @@ public class BinTreeUtils {
      * @param j        中序遍历的结束位置
      * @return 二叉树的根结点
      */
-    public static BinTreeNode solve(int[] preorder, int x, int y, int[] inorder, int i, int j) {
+    public static BinTreeNode solvePreIn(int[] preorder, int x, int y, int[] inorder, int i, int j) {
         if (x >= 0 && x <= y && i >= 0 && i <= j) {
             // 只有一个元素
             if (x == y) {
@@ -568,13 +576,73 @@ public class BinTreeUtils {
                 //
                 if (leftLength > 0) {
                     // x + 1, x + leftLength：左子树起始和结束位置
-                    root.leftChild = solve(preorder, x + 1, x + leftLength, inorder, i, idx - 1);
+                    root.leftChild = solvePreIn(preorder, x + 1, x + leftLength, inorder, i, idx - 1);
                 }
                 // 右子树的结点个数
                 int rightLength = j - idx;
                 if (rightLength > 0) {
                     // x + leftLength + 1, y：右子树起始和结束位置
-                    root.rightChild = solve(preorder, x + leftLength + 1, y, inorder, idx + 1, j);
+                    root.rightChild = solvePreIn(preorder, x + leftLength + 1, y, inorder, idx + 1, j);
+                }
+                return root;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 构建二叉树
+     * <pre>
+     * Given inorder and postorder traversal of a tree, construct the binary tree.
+     *
+     * Note:
+     * You may assume that duplicates do not exist in the tree.
+     *
+     * 题目大意：
+     * 给定一个中序遍历和后序遍历序列，构造一棵二叉树
+     * 注意：
+     * 树中没有重复元素
+     *
+     * 解题思路：
+     * 后序遍历的最后一个元素就是树的根结点(值为r)，
+     * 在中序遍历的序列中找值为r的位置idx，idx将中序遍历序列分为左右两个子树，
+     * 对应可以将后序遍历的序列分在两个子树，递归对其进行求解
+     * </pre>
+     *
+     * @param inorder   中序遍历的结果
+     * @param x         中序遍历的开始位置
+     * @param y         中序遍历的结束位置
+     * @param postorder 后序遍历的结果
+     * @param i         后序遍历的开始位置
+     * @param j         后序遍历的结束位置
+     * @return 二叉树
+     */
+    public static BinTreeNode solveInPosst(int[] inorder, int x, int y, int[] postorder, int i, int j) {
+        if (x >= 0 && x <= y && i >= 0 && i <= j) {
+            // 只有一个元素，（此时也有i=j成）
+            if (x == y) {
+                return new BinTreeNode(postorder[j]);
+            }
+            // 多于一个元素，此时也有i<j
+            else if (x < y) {
+                // 创建根结点
+                BinTreeNode root = new BinTreeNode(postorder[j]);
+                // 找根结点在中序遍历的下标
+                int idx = x;
+                while (idx < y && inorder[idx] != postorder[j]) {
+                    idx++;
+                }
+                // 左子树非空，构建左子树
+                int leftLength = idx - x;
+                if (leftLength > 0) {
+                    // i, i + leftLength - 1，前序遍历的左子树的起始，结束位置
+                    root.leftChild = solveInPosst(inorder, x, idx - 1, postorder, i, i + leftLength - 1);
+                }
+                // 右子树非空，构建右子树
+                int rightLength = y - idx;
+                if (rightLength > 0) {
+                    // i + leftLength, j - 1，前序遍历的右子树的起始，结束位置
+                    root.rightChild = solveInPosst(inorder, idx + 1, y, postorder, i + leftLength, j - 1);
                 }
                 return root;
             }
