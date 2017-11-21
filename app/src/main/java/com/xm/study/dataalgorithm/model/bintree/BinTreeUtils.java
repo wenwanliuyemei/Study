@@ -649,4 +649,64 @@ public class BinTreeUtils {
         }
         return null;
     }
+
+    /**
+     * <pre>
+     * Given a binary tree, return the bottom-up level order traversal of its nodes’ values.
+     * (ie, from left to right, level by level from leaf to root).
+     * For example:
+     * Given binary tree {3,9,20,#,#,15,7},
+     *
+     *     3
+     *    / \
+     *   9  20
+     *     /  \
+     *    15   7
+     * return its bottom-up level order traversal as:
+     *
+     * [
+     *  [15,7],
+     *  [9,20],
+     *  [3]
+     * ]
+     *
+     * 题目大意
+     * 给定一棵二叉树自底向上进行层序遍历。
+     *
+     * 解题思路
+     * 对树进行层序遍历，每层的结果放在结果链表的头部。
+     * </pre>
+     *
+     * @param root
+     * @return
+     */
+    public static List<List<Integer>> levelOrderBottom(BinTreeNode root) {
+        List<List<Integer>> list = new LinkedList<>();
+        if (root == null) {
+            return list;
+        }
+        Deque<BinTreeNode> cur = new LinkedList<>();
+        Deque<BinTreeNode> nxt = new LinkedList<>();
+        Deque<BinTreeNode> exc = new LinkedList<>();
+        BinTreeNode tmp;
+        cur.add(root);
+        while (!cur.isEmpty()) {
+            List<Integer> layout = new ArrayList<>();
+            while (!cur.isEmpty()) {
+                tmp = cur.remove();
+                if (tmp.leftChild != null) {
+                    nxt.add(tmp.leftChild);
+                }
+                if (tmp.rightChild != null) {
+                    nxt.add(tmp.rightChild);
+                }
+                layout.add(tmp.data);
+            }
+            exc = cur;
+            cur = nxt;
+            nxt = exc;
+            list.add(0, layout);
+        }
+        return list;
+    }
 }

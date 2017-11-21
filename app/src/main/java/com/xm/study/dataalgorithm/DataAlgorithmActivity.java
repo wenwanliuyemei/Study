@@ -120,14 +120,20 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     @Override
     public void levelOrderDone(String text) {
         LogUtils.e(TAG, "levelOrderDone");
-        tvBinTreeLevelOrder.setText(text);
+        tvBinTreeLevelOrder.setText("levelOrderDone:"+text);
+    }
+
+    @Override
+    public void levelOrderBottomDone(String text) {
+        LogUtils.e(TAG, "levelOrderBottomDone");
+        tvBinTreeLevelOrderZ.setText("levelOrderBottomDone:"+text);
     }
 
 
     @Override
     public void zigzagLevelOrderDone(String text) {
         LogUtils.e(TAG, "zigzagLevelOrderDone");
-        tvBinTreeLevelOrderZ.setText(text);
+        tvBinTreeLevelOrderZ.setText("zigzagLevelOrderDone:"+text);
     }
 
     @Override
@@ -202,7 +208,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 iDataAlgorithmPresenter.isSymmetric(new int[]{1, 2, 2, 3, 4, 7, 3});
                 break;
             case R.id.tv_bin_tree_level_order:
-                iDataAlgorithmPresenter.levelOrder(new int[]{1, 2, 2, 3, 4, 7, 3});
+                iDataAlgorithmPresenter.levelOrder(new int[]{1, 2, 3, 4, 5, 6, 7});
+                iDataAlgorithmPresenter.levelOrderBottom(new int[]{1, 2, 3, 4, 5, 6, 7});
                 break;
             case R.id.tv_bin_tree_level_order_z:
                 iDataAlgorithmPresenter.zigzagLevelOrder(new int[]{5, 3, 1, 7, 4, 8, 2});

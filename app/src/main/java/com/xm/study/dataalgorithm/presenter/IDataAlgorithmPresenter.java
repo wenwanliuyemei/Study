@@ -30,6 +30,8 @@ public interface IDataAlgorithmPresenter {
 
     void levelOrder(int[] arr);
 
+    void levelOrderBottom(int[] arr);
+
     void zigzagLevelOrder(int[] arr);
 
     void maxDepth(int arr[]);

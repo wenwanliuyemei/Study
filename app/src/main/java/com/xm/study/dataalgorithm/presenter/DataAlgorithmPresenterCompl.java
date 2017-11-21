@@ -123,6 +123,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     }
 
     @Override
+    public void levelOrderBottom(int[] arr) {
+        BinTreeNode binTreeNodeRoot = BinTreeUtils.getBinTreeNode(arr);
+        iDataAlgorithmView.levelOrderBottomDone(iteratorList(BinTreeUtils.levelOrderBottom(binTreeNodeRoot)));
+    }
+
+    @Override
     public void zigzagLevelOrder(int[] arr) {
         BinTreeNode binTreeNodeRoot = BinTreeUtils.getBinTreeNode(arr);
         iDataAlgorithmView.zigzagLevelOrderDone(iteratorList(BinTreeUtils.zigzagLevelOrder(binTreeNodeRoot)));

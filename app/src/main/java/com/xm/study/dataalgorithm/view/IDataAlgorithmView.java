@@ -32,6 +32,8 @@ public interface IDataAlgorithmView {
 
     void levelOrderDone(String text);
 
+    void levelOrderBottomDone(String text);
+
     void zigzagLevelOrderDone(String text);
 
     void maxDepthDone(int depth);
