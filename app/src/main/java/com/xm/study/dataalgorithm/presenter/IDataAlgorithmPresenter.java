@@ -42,6 +42,8 @@ public interface IDataAlgorithmPresenter {
 
     void buildTreeNull(int[] inorder, int[] postorder);
 
+    void sortedArrayToBST(int[] arr);
+
     void countOneInBinary(int num);
 
     void maxSum(int[] arrInt);

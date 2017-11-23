@@ -46,5 +46,7 @@ public interface IDataAlgorithmView {
 
     void buildTreeInPosstDone(BinTreeNode binTreeNode);
 
+    void sortedArrayToBSTDone(BinTreeNode binTreeNode);
+
     void maxSumDone();
 }
