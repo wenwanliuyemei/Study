@@ -44,6 +44,8 @@ public interface IDataAlgorithmPresenter {
 
     void sortedArrayToBST(int[] arr);
 
+    void sortedListToBST(int[] arr);
+
     void countOneInBinary(int num);
 
     void maxSum(int[] arrInt);

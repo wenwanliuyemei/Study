@@ -165,6 +165,13 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     }
 
     @Override
+    public void sortedListToBST(int[] arr) {
+        BinTreeNode root = BinTreeUtils.sortedListToBST(BinTreeUtils.getListBinTreeNode(arr));
+        BinTreeUtils.print2(root);
+        iDataAlgorithmView.sortedListToBSTDone(root);
+    }
+
+    @Override
     public void countOneInBinary(int num) {
         CountOneInBinary.hammingWeight(num);//12
         iDataAlgorithmView.countOneInBinaryDone();

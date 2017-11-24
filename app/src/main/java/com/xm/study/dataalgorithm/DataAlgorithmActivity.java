@@ -171,6 +171,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void sortedListToBSTDone(BinTreeNode binTreeNode) {
+        LogUtils.e(TAG, "sortedListToBSTDone");
+    }
+
+    @Override
     public void maxSumDone() {
         LogUtils.e(TAG, "maxSumDone");
     }
@@ -236,6 +241,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 break;
             case R.id.tv_bin_tree_create_bst:
                 iDataAlgorithmPresenter.sortedArrayToBST(new int[]{2, 4, 6, 7, 8, 9, 10, 11, 12});
+                iDataAlgorithmPresenter.sortedListToBST(new int[]{2, 4, 6, 7, 8, 9, 10, 11, 12});
                 break;
             case R.id.tv_count_1_in_binary:
 //                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);

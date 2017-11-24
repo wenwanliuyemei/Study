@@ -6,11 +6,11 @@ package com.xm.study.dataalgorithm.model.bintree;
  */
 
 public class BinTreeNode {
-    BinTreeNode leftChild;
-    BinTreeNode rightChild;
-    int data;
+    public BinTreeNode leftChild;
+    public BinTreeNode rightChild;
+    public int data;
 
-    BinTreeNode(int newData) {
+    public BinTreeNode(int newData) {
         leftChild = null;
         rightChild = null;
         data = newData;

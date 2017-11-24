@@ -759,4 +759,114 @@ public class BinTreeUtils {
         }
         return null;
     }
+
+    /**
+     * <pre>
+     * Given a singly linked list where elements are sorted in ascending order,
+     * convert it to a height balanced BST.
+     *
+     * 题目大意：
+     * 给定一个升序的单链表，将它转换成一颗高度平衡的二叉树
+     *
+     * 解题思路：
+     * 解法一：将单链表中的值存入一个数组中，通过数组来构建二叉树，算法时间复杂度是：O(n)，空间复杂度是：O(n)
+     * 解法二：采用递归的方式，
+     *      （一）找中间结点，构建根结点，
+     *      （二）中间结点左半部分构建左子树，
+     *      （三）中间结点的右部分构建右子树
+     * 题采用第二种解法
+     * </pre>
+     *
+     * @param head
+     * @return
+     */
+    public static BinTreeNode sortedListToBST(ListBinTreeNode head) {
+        // 如果链表为空就直接返回null
+        if (head == null) {
+            return null;
+        }
+        // 链表只有一个结点
+        if (head.next == null) {
+            return new BinTreeNode(head.val);
+        }
+        // 快速移动结点，每次移动两个位置
+        ListBinTreeNode fast = head.next.next;
+        // 记录中间结点
+        ListBinTreeNode mid = head;
+        // 找中间结点
+        while (fast != null && fast.next != null) {
+            mid = mid.next;
+            fast = fast.next.next;
+        }
+        // 以中间结点的下一个结点作为根结点
+        BinTreeNode root = new BinTreeNode(mid.next.val);
+        // 构建右子树
+        root.rightChild = sortedListToBST(mid.next.next);//2
+        // 记录链表要断开的点
+        ListBinTreeNode midNext = mid.next;//mindNext=1、2，
+        // 断开单链表（会破坏原来单链表的结构）
+        //如果原来head是-1、0、1、2，mid=0、1、2，经过mid.next = null后，head会变化，
+        // 则现在head变为-1、0，mid=0，mindNext=1、2
+        mid.next = null;
+        // 构建左子树
+        root.leftChild = sortedListToBST(head);
+        // 重新将链表接好
+        mid.next = midNext;//又重新补充完整
+        // 返回结果
+        return root;
+    }
+
+    public static ListBinTreeNode getListBinTreeNode(int[] arr) {
+//        if(arr==null||arr.length==0){
+//            return null;
+//        }
+//
+//        ListBinTreeNode listBinTreeNode0 = new ListBinTreeNode(0);
+//        if(arr.length>=1){
+//
+//            for (int i=1;i<arr.length;i++){
+//                ListBinTreeNode listBinTreeNode1 = new ListBinTreeNode(arr[i]);
+//                n1.next = n2;
+//            }
+//        }
+        ListBinTreeNode n1 = new ListBinTreeNode(-1);
+        ListBinTreeNode n2 = new ListBinTreeNode(0);
+        ListBinTreeNode n3 = new ListBinTreeNode(1);
+        ListBinTreeNode n4 = new ListBinTreeNode(2);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        return n1;
+    }
+
+    public static void print2(BinTreeNode root) {
+        if (root != null) {
+            List<BinTreeNode> list = new LinkedList<>();
+            list.add(root);
+            BinTreeNode node;
+            int curr = 1;
+            int next = 0;
+            while (!list.isEmpty()) {
+                node = list.remove(0);
+                curr--;
+                System.out.print(node.data + ", ");
+
+                if (node.leftChild != null) {
+                    list.add(node.leftChild);
+                    next++;
+                }
+
+                if (node.rightChild != null) {
+                    list.add(node.rightChild);
+                    next++;
+                }
+
+                if (curr == 0) {
+                    System.out.println();
+                    curr = next;
+                    next = 0;
+                }
+            }
+        }
+    }
 }
