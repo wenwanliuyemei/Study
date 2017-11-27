@@ -145,6 +145,12 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void isBalancedDone(boolean isBalanced) {
+        LogUtils.e(TAG, "isBalancedDone");
+        tvCount1InBinary.setText("isBalancedDone：" + isBalanced);
+    }
+
+    @Override
     public void countOneInBinaryDone() {
         LogUtils.e(TAG, "countOneInBinaryDone");
     }
@@ -229,6 +235,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 break;
             case R.id.tv_bin_tree_max_depth:
                 iDataAlgorithmPresenter.maxDepth(new int[]{5, 3, 1, 7, 4, 8, 2, 1});
+                iDataAlgorithmPresenter.isBalanced(new int[]{5, 3, 1, 7, 4, 8, 2, 1});
                 break;
             case R.id.tv_bin_tree_create:
                 //new int[]{5, 3, 1, 7, 4, 8, 2}

@@ -141,6 +141,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     }
 
     @Override
+    public void isBalanced(int[] arr) {
+        BinTreeNode binTreeNodeRoot = BinTreeUtils.getBinTreeNode(arr);
+        iDataAlgorithmView.isBalancedDone(BinTreeUtils.isBalanced(binTreeNodeRoot));
+    }
+
+    @Override
     public void buildTreePreIn(int[] preorder, int[] inorder) {
         iDataAlgorithmView.buildTreePreInDone(BinTreeUtils.buildTree(preorder, inorder, 1));
     }
