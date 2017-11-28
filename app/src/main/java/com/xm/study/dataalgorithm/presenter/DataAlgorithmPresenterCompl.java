@@ -141,6 +141,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     }
 
     @Override
+    public void minDepth(int[] arr) {
+        BinTreeNode binTreeNodeRoot = BinTreeUtils.getBinTreeNode(arr);
+        iDataAlgorithmView.minDepthDone(BinTreeUtils.getBinTreeUtils().minDepth(binTreeNodeRoot));
+    }
+
+    @Override
     public void isBalanced(int[] arr) {
         BinTreeNode binTreeNodeRoot = BinTreeUtils.getBinTreeNode(arr);
         iDataAlgorithmView.isBalancedDone(BinTreeUtils.isBalanced(binTreeNodeRoot));

@@ -38,6 +38,8 @@ public interface IDataAlgorithmView {
 
     void maxDepthDone(int depth);
 
+    void minDepthDone(int depth);
+
     void isBalancedDone(boolean isBalanced);
 
     void countOneInBinaryDone();

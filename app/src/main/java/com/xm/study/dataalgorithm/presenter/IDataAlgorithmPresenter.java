@@ -36,6 +36,8 @@ public interface IDataAlgorithmPresenter {
 
     void maxDepth(int arr[]);
 
+    void minDepth(int arr[]);
+
     void isBalanced(int arr[]);
 
     void buildTreePreIn(int[] preorder, int[] inorder);

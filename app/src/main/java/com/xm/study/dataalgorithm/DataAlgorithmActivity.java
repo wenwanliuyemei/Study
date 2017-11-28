@@ -145,6 +145,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void minDepthDone(int depth) {
+        tvBinTreeSort.setText("minDepthDone=" + depth);
+    }
+
+    @Override
     public void isBalancedDone(boolean isBalanced) {
         LogUtils.e(TAG, "isBalancedDone");
         tvCount1InBinary.setText("isBalancedDone：" + isBalanced);
@@ -236,6 +241,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
             case R.id.tv_bin_tree_max_depth:
                 iDataAlgorithmPresenter.maxDepth(new int[]{5, 3, 1, 7, 4, 8, 2, 1});
                 iDataAlgorithmPresenter.isBalanced(new int[]{5, 3, 1, 7, 4, 8, 2, 1});
+                iDataAlgorithmPresenter.minDepth(new int[]{5, 3, 1, 7, 4, 8, 2, 1, 9, 10, 22, 88, 81, 82, 83, 84});
                 break;
             case R.id.tv_bin_tree_create:
                 //new int[]{5, 3, 1, 7, 4, 8, 2}
