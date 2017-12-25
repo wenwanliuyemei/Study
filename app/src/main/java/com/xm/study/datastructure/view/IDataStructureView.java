@@ -23,4 +23,6 @@ public interface IDataStructureView {
     public void treeSetStudentDone();
 
     public void treeTableDone();
+
+    void reverseLinkedList1Done();
 }

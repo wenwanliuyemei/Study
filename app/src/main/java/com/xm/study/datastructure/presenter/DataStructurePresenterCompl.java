@@ -3,6 +3,8 @@ package com.xm.study.datastructure.presenter;
 import android.content.Context;
 import android.util.Log;
 
+import com.xm.study.datastructure.model.list.mylinkedlist.LinkedListNode;
+import com.xm.study.datastructure.model.list.mylinkedlist.LinkedListUtils;
 import com.xm.study.datastructure.model.set.TreeSetStudent;
 import com.xm.study.datastructure.model.string.ForCircleCompare;
 import com.xm.study.datastructure.model.string.FormatOutput;
@@ -12,6 +14,7 @@ import com.xm.study.datastructure.model.string.HexOutput;
 import com.xm.study.datastructure.model.string.MemoryAddress;
 import com.xm.study.datastructure.utils.StringUtils;
 import com.xm.study.datastructure.view.IDataStructureView;
+import com.xm.utils.LogUtils;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -167,5 +170,30 @@ public class DataStructurePresenterCompl implements IDataStructurePresenter {
             Log.e(TAG, "treeTable--object=" + object);
         }
         mIDataStructureView.treeTableDone();
+    }
+
+    @Override
+    public void reverseLinkedList1(int[] arrInt) {
+        LinkedListNode head = new LinkedListNode(0);
+        LinkedListNode linkedListNode1 = new LinkedListNode(1);
+        LinkedListNode linkedListNode2 = new LinkedListNode(2);
+        LinkedListNode linkedListNode3 = new LinkedListNode(3);
+        head.setNext(linkedListNode1);
+        linkedListNode1.setNext(linkedListNode2);
+        linkedListNode2.setNext(linkedListNode3);
+
+        LogUtils.e("反转前的链表：");
+        LinkedListNode h = head;
+        while (null != h) {
+            LogUtils.e(h.getData() + "");
+            h = h.getNext();
+        }
+        head = LinkedListUtils.reversedLinkedList(head);
+        LogUtils.e("反转后的结果：");
+        while (null != head) {
+            LogUtils.e(head.getData() + "");
+            head = head.getNext();
+        }
+        mIDataStructureView.reverseLinkedList1Done();
     }
 }

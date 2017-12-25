@@ -1,5 +1,7 @@
 package com.xm.study.datastructure.presenter;
 
+import com.xm.study.datastructure.model.list.mylinkedlist.LinkedListNode;
+
 /**
  * 作者：xm on 2017/2/6 17:17
  * 描述：
@@ -23,4 +25,6 @@ public interface IDataStructurePresenter {
     public void treeSetStudent();
 
     public void treeTable();
+
+    void reverseLinkedList1(int[] arrInt);
 }

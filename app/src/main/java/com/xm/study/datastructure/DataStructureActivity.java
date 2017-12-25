@@ -115,6 +115,7 @@ public class DataStructureActivity extends BaseActivity implements IDataStructur
                 break;
             case R.id.tv_data_structure_map_tree_table:
                 mIDataStructurePresenter.treeTable();
+                mIDataStructurePresenter.reverseLinkedList1(new int[]{0, 1, 2, 3});
                 break;
 //            case R.id.tv_method_varargs:
 //                mIGenericityPresenter.getGenericVarargs();
@@ -186,5 +187,10 @@ public class DataStructureActivity extends BaseActivity implements IDataStructur
     @Override
     public void treeTableDone() {
         Log.e(TAG, "treeTableDone");
+    }
+
+    @Override
+    public void reverseLinkedList1Done() {
+        Log.e(TAG, "reverseLinkedList1Done");
     }
 }
