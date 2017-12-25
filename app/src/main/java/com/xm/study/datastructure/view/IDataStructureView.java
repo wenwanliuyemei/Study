@@ -25,4 +25,6 @@ public interface IDataStructureView {
     public void treeTableDone();
 
     void reverseLinkedList1Done();
+
+    void reverseLinkedList2Done();
 }

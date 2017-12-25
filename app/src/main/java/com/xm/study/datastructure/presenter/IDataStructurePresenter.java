@@ -27,4 +27,6 @@ public interface IDataStructurePresenter {
     public void treeTable();
 
     void reverseLinkedList1(int[] arrInt);
+
+    void reverseLinkedList2(int[] arrInt);
 }
