@@ -55,4 +55,6 @@ public interface IDataAlgorithmView {
     void sortedListToBSTDone(BinTreeNode binTreeNode);
 
     void maxSumDone();
+
+    void twoSumDone(int[] arrInt);
 }

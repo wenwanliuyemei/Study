@@ -6,6 +6,7 @@ import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeUtils;
 import com.xm.study.dataalgorithm.model.count.CountOneInBinary;
 import com.xm.study.dataalgorithm.model.count.MaxSum;
+import com.xm.study.dataalgorithm.model.count.SumUtils;
 import com.xm.study.dataalgorithm.model.sort.BubbleSort;
 import com.xm.study.dataalgorithm.model.sort.InsertSort;
 import com.xm.study.dataalgorithm.model.sort.QuickSort;
@@ -196,6 +197,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         Map<Integer, List<Object>> map = MaxSum.maxSum2(arrIntTemp);
         LogUtils.e("map=" + map);
         iDataAlgorithmView.maxSumDone();
+    }
+
+    @Override
+    public void twoSum(int[] arrInt, int target) {
+        int[] result = SumUtils.twoSum(arrInt,target);
+        iDataAlgorithmView.twoSumDone(result);
     }
 
     private String iteratorList(List<List<Integer>> lists) {

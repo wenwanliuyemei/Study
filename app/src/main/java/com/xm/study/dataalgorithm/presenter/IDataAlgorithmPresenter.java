@@ -54,5 +54,6 @@ public interface IDataAlgorithmPresenter {
 
     void maxSum(int[] arrInt);
 
+    void twoSum(int[] arrInt,int target);
 
 }
