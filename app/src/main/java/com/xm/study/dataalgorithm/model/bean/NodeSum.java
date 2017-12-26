@@ -1,4 +1,4 @@
-package com.xm.study.dataalgorithm.model.count;
+package com.xm.study.dataalgorithm.model.bean;
 
 /**
  * @author: xm on 2017/12/26.
@@ -7,8 +7,8 @@ package com.xm.study.dataalgorithm.model.count;
 
 public class NodeSum implements Comparable<NodeSum> {
 
-    int val;
-    int idx;
+    public int val;
+    public int idx;
 
     public NodeSum() {
     }

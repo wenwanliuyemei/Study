@@ -1,4 +1,6 @@
-package com.xm.study.dataalgorithm.model.count;
+package com.xm.study.dataalgorithm.model.array;
+
+import com.xm.study.dataalgorithm.model.bean.NodeSum;
 
 import java.util.Arrays;
 
@@ -7,7 +9,7 @@ import java.util.Arrays;
  * @describe:
  */
 
-public class SumUtils {
+public class ArraysUtils {
 
     /**
      * 题目大意
