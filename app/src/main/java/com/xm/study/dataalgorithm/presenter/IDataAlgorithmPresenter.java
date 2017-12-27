@@ -56,4 +56,6 @@ public interface IDataAlgorithmPresenter {
 
     void twoSum(int[] arrInt,int target);
 
+    void addTwoNumbers();
+
 }

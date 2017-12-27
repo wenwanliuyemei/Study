@@ -2,11 +2,13 @@ package com.xm.study.dataalgorithm.presenter;
 
 import android.content.Context;
 
+import com.xm.study.dataalgorithm.model.bean.ListNode;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeUtils;
 import com.xm.study.dataalgorithm.model.count.CountOneInBinary;
 import com.xm.study.dataalgorithm.model.count.MaxSum;
 import com.xm.study.dataalgorithm.model.array.ArraysUtils;
+import com.xm.study.dataalgorithm.model.list.LinkedListUtils;
 import com.xm.study.dataalgorithm.model.sort.BubbleSort;
 import com.xm.study.dataalgorithm.model.sort.InsertSort;
 import com.xm.study.dataalgorithm.model.sort.QuickSort;
@@ -203,6 +205,26 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     public void twoSum(int[] arrInt, int target) {
         int[] result = ArraysUtils.twoSum(arrInt,target);
         iDataAlgorithmView.twoSumDone(result);
+    }
+
+    @Override
+    public void addTwoNumbers() {
+        ListNode listNode1=new ListNode(2);
+        ListNode listNode2=new ListNode(6);
+        ListNode listNode3=new ListNode(9);
+        ListNode listNode4=new ListNode(8);
+        listNode1.next=listNode2;
+        listNode2.next=listNode3;
+        listNode3.next=listNode4;
+        ListNode listNode5=new ListNode(9);
+        ListNode listNode6=new ListNode(5);
+        ListNode listNode7=new ListNode(2);
+        ListNode listNode8=new ListNode(4);
+        listNode5.next=listNode6;
+        listNode6.next=listNode7;
+        listNode7.next=listNode8;
+        ListNode listNode= LinkedListUtils.addTwoNumbers(listNode1,listNode5);
+        iDataAlgorithmView.addTwoNumbersDone(listNode.toString());
     }
 
     private String iteratorList(List<List<Integer>> lists) {

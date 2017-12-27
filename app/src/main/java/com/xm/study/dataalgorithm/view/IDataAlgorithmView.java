@@ -57,4 +57,6 @@ public interface IDataAlgorithmView {
     void maxSumDone();
 
     void twoSumDone(int[] arrInt);
+
+    void addTwoNumbersDone(String str);
 }

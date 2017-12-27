@@ -193,11 +193,16 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
 
     @Override
     public void twoSumDone(int[] arrInt) {
-        if(arrInt!=null){
-           for(int i=0;i<arrInt.length;i++){
-               LogUtils.e(TAG, "twoSumDone---i="+arrInt[i]);
-           }
+        if (arrInt != null) {
+            for (int i = 0; i < arrInt.length; i++) {
+                LogUtils.e(TAG, "twoSumDone---i=" + arrInt[i]);
+            }
         }
+    }
+
+    @Override
+    public void addTwoNumbersDone(String str) {
+        LogUtils.e(TAG, "addTwoNumbersDone：" + str);
     }
 
     @OnClick({R.id.tv_data_algorithm_insert_sort_1, R.id.tv_data_algorithm_bubble_sort_1,
@@ -270,7 +275,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
 //                iDataAlgorithmPresenter.maxSum(new int[]{2});
 //                iDataAlgorithmPresenter.maxSum(new int[]{5, 3});
                 iDataAlgorithmPresenter.maxSum(new int[]{5, 3, 1, 7, 4, 8, 2, 10, 3, 11, 34});
-                iDataAlgorithmPresenter.twoSum(new int[]{5, 3, 1, 7, 4, 8, 2, 10, 11, 34},14);
+                iDataAlgorithmPresenter.twoSum(new int[]{5, 3, 1, 7, 4, 8, 2, 10, 11, 34}, 14);
+                iDataAlgorithmPresenter.addTwoNumbers();
                 break;
         }
     }
