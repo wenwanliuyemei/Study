@@ -59,4 +59,8 @@ public interface IDataAlgorithmView {
     void twoSumDone(int[] arrInt);
 
     void addTwoNumbersDone(String str);
+
+    void lengthOfLongestSubstringDone(int result);
+
+    void lengthOfLongestSubstring2Done(int result);
 }

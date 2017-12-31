@@ -205,6 +205,16 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
         LogUtils.e(TAG, "addTwoNumbersDone：" + str);
     }
 
+    @Override
+    public void lengthOfLongestSubstringDone(int result) {
+        LogUtils.e(TAG, "lengthOfLongestSubstringDone：" + result);
+    }
+
+    @Override
+    public void lengthOfLongestSubstring2Done(int result) {
+        LogUtils.e(TAG, "lengthOfLongestSubstring2Done：" + result);
+    }
+
     @OnClick({R.id.tv_data_algorithm_insert_sort_1, R.id.tv_data_algorithm_bubble_sort_1,
             R.id.tv_data_algorithm_bubble_sort_2, R.id.tv_data_algorithm_quick_sort,
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
@@ -277,6 +287,8 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 iDataAlgorithmPresenter.maxSum(new int[]{5, 3, 1, 7, 4, 8, 2, 10, 3, 11, 34});
                 iDataAlgorithmPresenter.twoSum(new int[]{5, 3, 1, 7, 4, 8, 2, 10, 11, 34}, 14);
                 iDataAlgorithmPresenter.addTwoNumbers();
+                iDataAlgorithmPresenter.lengthOfLongestSubstring("2dwhdi943hrandjnjnjnjcnenjheiu");
+                iDataAlgorithmPresenter.lengthOfLongestSubstring2("hfdbvhabefgqbbbbdhebhbehba");
                 break;
         }
     }

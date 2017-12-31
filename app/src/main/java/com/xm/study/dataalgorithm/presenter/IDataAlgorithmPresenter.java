@@ -58,4 +58,8 @@ public interface IDataAlgorithmPresenter {
 
     void addTwoNumbers();
 
+    void lengthOfLongestSubstring(String str);
+
+    void lengthOfLongestSubstring2(String str);
+
 }
