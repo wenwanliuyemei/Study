@@ -1,7 +1,5 @@
 package com.xm.study.dataalgorithm.model.list;
 
-import com.xm.study.dataalgorithm.model.bean.ListNode;
-
 /**
  * @author: xm on 2017/12/26.
  * @describe:

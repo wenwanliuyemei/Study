@@ -1,7 +1,5 @@
 package com.xm.study.dataalgorithm.model.array;
 
-import com.xm.study.dataalgorithm.model.bean.NodeSum;
-
 import java.util.Arrays;
 
 /**

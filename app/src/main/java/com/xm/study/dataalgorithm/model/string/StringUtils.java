@@ -1,4 +1,4 @@
-package com.xm.study.dataalgorithm.model;
+package com.xm.study.dataalgorithm.model.string;
 
 import java.util.Arrays;
 import java.util.HashMap;

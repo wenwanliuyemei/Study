@@ -2,8 +2,8 @@ package com.xm.study.dataalgorithm.presenter;
 
 import android.content.Context;
 
-import com.xm.study.dataalgorithm.model.StringUtils;
-import com.xm.study.dataalgorithm.model.bean.ListNode;
+import com.xm.study.dataalgorithm.model.string.StringUtils;
+import com.xm.study.dataalgorithm.model.list.ListNode;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeUtils;
 import com.xm.study.dataalgorithm.model.count.CountOneInBinary;

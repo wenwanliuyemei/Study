@@ -1,4 +1,4 @@
-package com.xm.study.dataalgorithm.model.bean;
+package com.xm.study.dataalgorithm.model.list;
 
 /**
  * @author: xm on 2017/12/26.
