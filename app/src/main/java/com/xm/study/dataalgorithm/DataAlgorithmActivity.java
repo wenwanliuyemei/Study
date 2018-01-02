@@ -215,6 +215,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
         LogUtils.e(TAG, "lengthOfLongestSubstring2Done：" + result);
     }
 
+    @Override
+    public void findMedianSortedArraysDone(double result) {
+        LogUtils.e(TAG, "findMedianSortedArraysDone：" + result);
+    }
+
     @OnClick({R.id.tv_data_algorithm_insert_sort_1, R.id.tv_data_algorithm_bubble_sort_1,
             R.id.tv_data_algorithm_bubble_sort_2, R.id.tv_data_algorithm_quick_sort,
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
@@ -279,6 +284,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
             case R.id.tv_bin_tree_create_bst:
                 iDataAlgorithmPresenter.sortedArrayToBST(new int[]{2, 4, 6, 7, 8, 9, 10, 11, 12});
                 iDataAlgorithmPresenter.sortedListToBST(new int[]{2, 4, 6, 7, 8, 9, 10, 11, 12});
+                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5,6,7,8,9},new int[]{1,2,3,4,5,6});
                 break;
             case R.id.tv_count_1_in_binary:
 //                iDataAlgorithmPresenter.countOneInBinary(0B11111111_01010101);
@@ -289,6 +295,10 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 iDataAlgorithmPresenter.addTwoNumbers();
                 iDataAlgorithmPresenter.lengthOfLongestSubstring("2dwhdi943hrandjnjnjnjcnenjheiu");
                 iDataAlgorithmPresenter.lengthOfLongestSubstring2("hfdbvhabefgqbbbbdhebhbehba");
+//                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{},new int[]{});
+//                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5},new int[]{});
+//                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5,6,7,8,9},new int[]{});
+//                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5,6,7,8,9},new int[]{1,2,3,4,5,6});
                 break;
         }
     }

@@ -240,6 +240,11 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         iDataAlgorithmView.lengthOfLongestSubstring2Done(result);
     }
 
+    @Override
+    public void findMedianSortedArrays(int[] nums1, int[] nums2) {
+        iDataAlgorithmView.findMedianSortedArraysDone(ArraysUtils.findMedianSortedArrays(nums1, nums2));
+    }
+
     private String iteratorList(List<List<Integer>> lists) {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < lists.size(); i++) {

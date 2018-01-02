@@ -54,12 +54,14 @@ public interface IDataAlgorithmPresenter {
 
     void maxSum(int[] arrInt);
 
-    void twoSum(int[] arrInt,int target);
+    void twoSum(int[] arrInt, int target);
 
     void addTwoNumbers();
 
     void lengthOfLongestSubstring(String str);
 
     void lengthOfLongestSubstring2(String str);
+
+    void findMedianSortedArrays(int[] nums1, int[] nums2);
 
 }
