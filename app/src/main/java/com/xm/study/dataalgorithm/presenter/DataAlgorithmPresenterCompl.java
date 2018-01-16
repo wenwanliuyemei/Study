@@ -2,6 +2,7 @@ package com.xm.study.dataalgorithm.presenter;
 
 import android.content.Context;
 
+import com.xm.study.dataalgorithm.model.stack.StackXArrayUtils;
 import com.xm.study.dataalgorithm.model.string.StringUtils;
 import com.xm.study.dataalgorithm.model.list.ListNode;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
@@ -243,6 +244,11 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     @Override
     public void findMedianSortedArrays(int[] nums1, int[] nums2) {
         iDataAlgorithmView.findMedianSortedArraysDone(ArraysUtils.findMedianSortedArrays(nums1, nums2));
+    }
+
+    @Override
+    public void doReverser(String in) {
+        iDataAlgorithmView.doReverserDone(StackXArrayUtils.doReverser(in));
     }
 
     private String iteratorList(List<List<Integer>> lists) {

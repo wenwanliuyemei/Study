@@ -220,6 +220,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
         LogUtils.e(TAG, "findMedianSortedArraysDone：" + result);
     }
 
+    @Override
+    public void doReverserDone(String result) {
+        LogUtils.e(TAG, "doReverserDone：" + result);
+    }
+
     @OnClick({R.id.tv_data_algorithm_insert_sort_1, R.id.tv_data_algorithm_bubble_sort_1,
             R.id.tv_data_algorithm_bubble_sort_2, R.id.tv_data_algorithm_quick_sort,
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
@@ -295,6 +300,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 iDataAlgorithmPresenter.addTwoNumbers();
                 iDataAlgorithmPresenter.lengthOfLongestSubstring("2dwhdi943hrandjnjnjnjcnenjheiu");
                 iDataAlgorithmPresenter.lengthOfLongestSubstring2("hfdbvhabefgqbbbbdhebhbehba");
+                iDataAlgorithmPresenter.doReverser("12345678");
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{},new int[]{});
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5},new int[]{});
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5,6,7,8,9},new int[]{});

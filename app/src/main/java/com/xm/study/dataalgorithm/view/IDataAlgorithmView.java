@@ -65,4 +65,7 @@ public interface IDataAlgorithmView {
     void lengthOfLongestSubstring2Done(int result);
 
     void findMedianSortedArraysDone(double result);
+
+    //stack
+    void doReverserDone(String result);
 }

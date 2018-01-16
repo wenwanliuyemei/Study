@@ -64,4 +64,7 @@ public interface IDataAlgorithmPresenter {
 
     void findMedianSortedArrays(int[] nums1, int[] nums2);
 
+    //stack
+    void doReverser(String in);
+
 }
