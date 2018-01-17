@@ -2,6 +2,7 @@ package com.xm.study.dataalgorithm.presenter;
 
 import android.content.Context;
 
+import com.xm.study.dataalgorithm.model.queue.QueueUtils;
 import com.xm.study.dataalgorithm.model.stack.StackXArrayUtils;
 import com.xm.study.dataalgorithm.model.string.StringUtils;
 import com.xm.study.dataalgorithm.model.list.ListNode;
@@ -256,6 +257,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         StackXArrayUtils.bracketChecker(in);
         iDataAlgorithmView.bracketCheckerDone();
 
+    }
+
+    @Override
+    public void queueTest(long[] arr1, long[] arr2) {
+        QueueUtils.queueTest(arr1,arr2);
+        iDataAlgorithmView.queueTestDone();
     }
 
     private String iteratorList(List<List<Integer>> lists) {
