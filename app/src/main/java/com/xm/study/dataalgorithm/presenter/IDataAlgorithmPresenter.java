@@ -67,4 +67,6 @@ public interface IDataAlgorithmPresenter {
     //stack
     void doReverser(String in);
 
+    void bracketChecker(String in);
+
 }

@@ -251,6 +251,13 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         iDataAlgorithmView.doReverserDone(StackXArrayUtils.doReverser(in));
     }
 
+    @Override
+    public void bracketChecker(String in) {
+        StackXArrayUtils.bracketChecker(in);
+        iDataAlgorithmView.bracketCheckerDone();
+
+    }
+
     private String iteratorList(List<List<Integer>> lists) {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < lists.size(); i++) {

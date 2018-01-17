@@ -68,4 +68,6 @@ public interface IDataAlgorithmView {
 
     //stack
     void doReverserDone(String result);
+
+    void bracketCheckerDone();
 }
