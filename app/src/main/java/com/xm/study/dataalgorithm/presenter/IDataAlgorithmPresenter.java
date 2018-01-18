@@ -71,4 +71,6 @@ public interface IDataAlgorithmPresenter {
 
     //queue
     void queueTest(long[] arr1, long[] arr2);
+
+    void queuePriorityTest(long[] arr);
 }

@@ -235,6 +235,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
         LogUtils.e(TAG, "queueTestDone：");
     }
 
+    @Override
+    public void queuePriorityTestDone() {
+        LogUtils.e(TAG, "queuePriorityTestDone：");
+    }
+
     @OnClick({R.id.tv_data_algorithm_insert_sort_1, R.id.tv_data_algorithm_bubble_sort_1,
             R.id.tv_data_algorithm_bubble_sort_2, R.id.tv_data_algorithm_quick_sort,
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
@@ -313,6 +318,9 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 iDataAlgorithmPresenter.doReverser("12345678");
                 iDataAlgorithmPresenter.bracketChecker("1{[(23)45]67})8");
                 iDataAlgorithmPresenter.queueTest(new long[]{10, 20, 30, 40, 50}, new long[]{60, 70, 80, 90});
+                iDataAlgorithmPresenter.queuePriorityTest(new long[]{90, 50, 12, 30, 45, 56, 17, 80, 47, 18});
+
+
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{},new int[]{});
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5},new int[]{});
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5,6,7,8,9},new int[]{});

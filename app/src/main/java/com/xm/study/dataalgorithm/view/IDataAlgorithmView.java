@@ -71,4 +71,6 @@ public interface IDataAlgorithmView {
 
     //queue
     void queueTestDone();
+
+    void queuePriorityTestDone();
 }

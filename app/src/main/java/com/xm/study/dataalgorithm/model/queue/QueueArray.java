@@ -5,15 +5,14 @@ package com.xm.study.dataalgorithm.model.queue;
  * @describe: 队列（数组实现），有数据项计数nItems。
  */
 
-public class QueueArray {
+public class QueueArray extends BaseQueueArray {
 
-    private int maxSize;
-    private long[] queArray;
     private int front;
     private int rear;
     private int nItems;
 
     public QueueArray(int size) {
+        super();
         maxSize = size;
         queArray = new long[maxSize];
         front = 0;
@@ -21,6 +20,7 @@ public class QueueArray {
         nItems = 0;
     }
 
+    @Override
     public void insert(long i) {
         if (rear == maxSize - 1) {
             rear = -1;
@@ -29,6 +29,7 @@ public class QueueArray {
         nItems++;
     }
 
+    @Override
     public long remove() {
         long temp = queArray[front++];
         if (front == maxSize) {
@@ -38,14 +39,17 @@ public class QueueArray {
         return temp;
     }
 
-    public long peekFront() {
+    @Override
+    public long peek() {
         return queArray[front];
     }
 
+    @Override
     public boolean isEmpty() {
         return nItems == 0;
     }
 
+    @Override
     public boolean isFull() {
         return nItems == maxSize;
     }

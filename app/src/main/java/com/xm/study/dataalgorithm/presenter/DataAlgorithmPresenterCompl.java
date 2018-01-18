@@ -265,6 +265,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         iDataAlgorithmView.queueTestDone();
     }
 
+    @Override
+    public void queuePriorityTest(long[] arr) {
+        QueueUtils.queuePriorityTest(arr);
+        iDataAlgorithmView.queuePriorityTestDone();
+    }
+
     private String iteratorList(List<List<Integer>> lists) {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < lists.size(); i++) {

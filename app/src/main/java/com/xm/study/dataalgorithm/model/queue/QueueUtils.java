@@ -12,7 +12,7 @@ public class QueueUtils {
 
     public static void queueTest(long[] arr1, long[] arr2) {
         if (arr1 == null || arr1.length == 0) {
-            LogUtils.e("QueueUtils--test:", "arr1 is null ,or length is 0.");
+            LogUtils.e("QueueUtils--queueTest:", "arr1 is null ,or length is 0.");
             return;
         }
         QueueArray queueArray = new QueueArray(arr1.length);
@@ -37,7 +37,23 @@ public class QueueUtils {
 
         while (!queueArray.isEmpty()) {
             long temp = queueArray.remove();
-            LogUtils.e("QueueUtils--test:", temp + "");
+            LogUtils.e("QueueUtils--queueTest:", temp + "");
+        }
+    }
+
+    public static void queuePriorityTest(long[] arr) {
+        if (arr == null || arr.length == 0) {
+            LogUtils.e("QueueUtils--queuePriorityTest:", "arr is null ,or length is 0.");
+            return;
+        }
+        QueuePriority queuePriority = new QueuePriority(arr.length);
+        for (int i = 0; i < arr.length; i++) {
+            queuePriority.insert(arr[i]);
+        }
+
+        while (!queuePriority.isEmpty()) {
+            long item = queuePriority.remove();
+            LogUtils.e("QueueUtils--queuePriorityTest:", item + "");
         }
     }
 }
