@@ -260,8 +260,13 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     }
 
     @Override
+    public void doTrans(String in) {
+        iDataAlgorithmView.doTransDone(StackXArrayUtils.doTrans(in));
+    }
+
+    @Override
     public void queueTest(long[] arr1, long[] arr2) {
-        QueueUtils.queueTest(arr1,arr2);
+        QueueUtils.queueTest(arr1, arr2);
         iDataAlgorithmView.queueTestDone();
     }
 

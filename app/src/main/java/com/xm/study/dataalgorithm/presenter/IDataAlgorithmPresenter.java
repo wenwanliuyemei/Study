@@ -69,6 +69,8 @@ public interface IDataAlgorithmPresenter {
 
     void bracketChecker(String in);
 
+    void doTrans(String in);
+
     //queue
     void queueTest(long[] arr1, long[] arr2);
 

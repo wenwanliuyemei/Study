@@ -69,6 +69,8 @@ public interface IDataAlgorithmView {
 
     void bracketCheckerDone();
 
+    void doTransDone(String result);
+
     //queue
     void queueTestDone();
 
