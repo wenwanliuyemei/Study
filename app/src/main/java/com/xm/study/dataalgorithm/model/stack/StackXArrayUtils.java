@@ -57,7 +57,7 @@ public class StackXArrayUtils {
             LogUtils.e("StackXArrayUtils:bracketChecker", "Error: missing right delimiter");
         }
     }
-    
+
     public static String doTrans(String input) {
         if (input == null || input.length() == 0) {
             LogUtils.e("StackXArrayUtils--doTrans:", "input is null ,or length is 0.");
@@ -119,8 +119,8 @@ public class StackXArrayUtils {
                     stringBuffer.append(opTop);
                 }
             }
-            stackXArray.push(opThis);
         }
+        stackXArray.push(opThis);
     }
 
     public static void gotParen(StackXArray stackXArray, StringBuffer stringBuffer, char ch) {
