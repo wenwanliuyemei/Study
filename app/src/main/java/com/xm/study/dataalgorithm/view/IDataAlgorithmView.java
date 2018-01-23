@@ -71,6 +71,8 @@ public interface IDataAlgorithmView {
 
     void doTransDone(String result);
 
+    void doParseDone(int result);
+
     //queue
     void queueTestDone();
 

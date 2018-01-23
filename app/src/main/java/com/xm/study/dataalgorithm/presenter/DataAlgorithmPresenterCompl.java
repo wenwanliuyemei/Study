@@ -261,7 +261,15 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
 
     @Override
     public void doTrans(String in) {
-        iDataAlgorithmView.doTransDone(StackXArrayUtils.doTrans(in));
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(StackXArrayUtils.doTrans(in));
+        iDataAlgorithmView.doTransDone(stringBuffer.toString());
+        doParse(stringBuffer.toString());
+    }
+
+    @Override
+    public void doParse(String in) {
+        iDataAlgorithmView.doParseDone(StackXArrayUtils.doParse(in));
     }
 
     @Override

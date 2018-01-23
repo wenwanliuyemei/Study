@@ -71,6 +71,8 @@ public interface IDataAlgorithmPresenter {
 
     void doTrans(String in);
 
+    void doParse(String in);
+
     //queue
     void queueTest(long[] arr1, long[] arr2);
 

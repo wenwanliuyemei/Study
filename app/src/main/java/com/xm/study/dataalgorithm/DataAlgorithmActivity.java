@@ -236,6 +236,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void doParseDone(int result) {
+        LogUtils.e(TAG, "doParseDone：" + result);
+    }
+
+    @Override
     public void queueTestDone() {
         LogUtils.e(TAG, "queueTestDone：");
     }
@@ -324,7 +329,9 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 iDataAlgorithmPresenter.bracketChecker("1{[(23)45]67})8");
                 iDataAlgorithmPresenter.queueTest(new long[]{10, 20, 30, 40, 50}, new long[]{60, 70, 80, 90});
                 iDataAlgorithmPresenter.queuePriorityTest(new long[]{90, 50, 12, 30, 45, 56, 17, 80, 47, 18});
-                iDataAlgorithmPresenter.doTrans("A*(B+C)");
+//                iDataAlgorithmPresenter.doTrans("A*(B+C)");
+//                iDataAlgorithmPresenter.doTrans("(3+4)*5");//34+5*
+                iDataAlgorithmPresenter.doTrans("(3*(4+5)-6/(1+2)");//345+*612+/-
 
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{},new int[]{});
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5},new int[]{});

@@ -11,7 +11,7 @@ public class StackXArrayUtils {
 
     public static String doReverser(String in) {
         int stackSize = in.length();
-        StackXArray stackXArray = new StackXArray(stackSize);
+        StackXArray<Character> stackXArray = new StackXArray<Character>(Character.class, stackSize);
 
         for (int i = 0; i < in.length(); i++) {
             char c = in.charAt(i);
@@ -27,7 +27,7 @@ public class StackXArrayUtils {
 
     public static void bracketChecker(String in) {
         int stackSize = in.length();
-        StackXArray stackXArray = new StackXArray(stackSize);
+        StackXArray<Character> stackXArray = new StackXArray<Character>(Character.class, stackSize);
         for (int i = 0; i < in.length(); i++) {
             char ch = in.charAt(i);
             switch (ch) {
@@ -58,13 +58,19 @@ public class StackXArrayUtils {
         }
     }
 
+    /**
+     * 后缀表达式
+     *
+     * @param input
+     * @return
+     */
     public static String doTrans(String input) {
         if (input == null || input.length() == 0) {
             LogUtils.e("StackXArrayUtils--doTrans:", "input is null ,or length is 0.");
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        StackXArray stackXArray = new StackXArray(input.length());
+        StackXArray<Character> stackXArray = new StackXArray<Character>(Character.class, input.length());
 
         for (int j = 0; j < input.length(); j++) {
             char ch = input.charAt(j);
@@ -99,9 +105,17 @@ public class StackXArrayUtils {
         return stringBuffer.toString();
     }
 
+    /**
+     * 入栈
+     *
+     * @param stackXArray
+     * @param stringBuffer
+     * @param opThis
+     * @param prec1
+     */
     public static void gotOper(StackXArray stackXArray, StringBuffer stringBuffer, char opThis, int prec1) {
         while (!stackXArray.isEmpty()) {
-            char opTop = stackXArray.pop();
+            char opTop = (char) stackXArray.pop();
             if (opTop == '(') {
                 stackXArray.push(opTop);
                 break;
@@ -123,14 +137,64 @@ public class StackXArrayUtils {
         stackXArray.push(opThis);
     }
 
+    /**
+     * 出栈
+     *
+     * @param stackXArray
+     * @param stringBuffer
+     * @param ch
+     */
     public static void gotParen(StackXArray stackXArray, StringBuffer stringBuffer, char ch) {
         while (!stackXArray.isEmpty()) {
-            char chx = stackXArray.pop();
+            char chx = (char) stackXArray.pop();
             if (chx == '(') {
                 break;
             } else {
                 stringBuffer.append(chx);
             }
         }
+    }
+
+
+    public static int doParse(String input) {
+        if (input == null || input.length() == 0) {
+            LogUtils.e("StackXArrayUtils--doParse:", "input is null ,or length is 0.");
+            return (int) Double.NEGATIVE_INFINITY;
+        }
+        StackXArray<Integer> stackXArray = new StackXArray<Integer>(Integer.class, input.length());
+        char ch;
+
+        int num1, num2, interAns;
+        for (int i = 0; i < input.length(); i++) {
+            ch = input.charAt(i);
+            stackXArray.displayStack(ch + " ");
+            if (ch >= '0' && ch <= '9') {
+                stackXArray.push(ch - '0');
+            } else if (stackXArray.size() > 1) {
+                num2 = stackXArray.pop();
+                num1 = stackXArray.pop();
+                switch (ch) {
+                    case '+':
+                        interAns = num1 + num2;
+                        break;
+                    case '-':
+                        interAns = num1 - num2;
+                        break;
+                    case '*':
+                        interAns = num1 * num2;
+                        break;
+                    case '/':
+                        interAns = num1 / num2;
+                        break;
+                    default:
+                        interAns = 0;
+                }
+                stackXArray.push(interAns);
+            }else{
+
+            }
+        }
+        interAns = stackXArray.pop();
+        return interAns;
     }
 }

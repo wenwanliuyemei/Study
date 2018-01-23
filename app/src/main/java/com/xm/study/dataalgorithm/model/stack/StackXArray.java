@@ -2,36 +2,38 @@ package com.xm.study.dataalgorithm.model.stack;
 
 import com.xm.utils.LogUtils;
 
+import java.lang.reflect.Array;
+
 /**
  * @author: xm on 2018/1/16.
  * @describe: 栈（数组实现）
  */
 
-public class StackXArray {
+public class StackXArray<T> {
 
     private int maxSize;
-    private char[] stackArray;
+    private T[] stackArray;
     private int top;
 
-    public StackXArray(int max) {
+    public StackXArray(Class<T> type, int max) {
         maxSize = max;
-        stackArray = new char[maxSize];
+        stackArray = (T[]) Array.newInstance(type, maxSize);
         top = -1;
     }
 
-    public void push(char j) {
+    public void push(T j) {
         stackArray[++top] = j;
     }
 
-    public char pop() {
+    public T pop() {
         return stackArray[top--];
     }
 
-    public char peek() {
+    public T peek() {
         return stackArray[top];
     }
 
-    public char peekN(int n) {
+    public T peekN(int n) {
         return stackArray[n];
     }
 
