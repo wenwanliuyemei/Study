@@ -284,6 +284,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         iDataAlgorithmView.queuePriorityTestDone();
     }
 
+    @Override
+    public void linkListTest(int[] arrInt, double[] arrDou, int keyFind, int keyDelete) {
+        LinkedListUtils.linkListTest(context, arrInt, arrDou, keyFind, keyDelete);
+        iDataAlgorithmView.linkListTestDone();
+    }
+
     private String iteratorList(List<List<Integer>> lists) {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < lists.size(); i++) {

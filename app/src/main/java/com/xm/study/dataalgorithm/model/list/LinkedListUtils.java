@@ -1,5 +1,9 @@
 package com.xm.study.dataalgorithm.model.list;
 
+import android.content.Context;
+
+import com.xm.utils.LogUtils;
+
 /**
  * @author: xm on 2017/12/26.
  * @describe:
@@ -77,4 +81,38 @@ public class LinkedListUtils {
         return root.next;
     }
 
+    public static void linkListTest(Context context, int[] arrInt, double[] arrDou, int keyFind, int keyDelete) {
+        if (arrInt == null || arrInt.length < 1) {
+            LogUtils.logNull(context);
+            return;
+        }
+        if (arrDou == null || arrDou.length < 1) {
+            LogUtils.logNull(context);
+            return;
+        }
+        int length = Math.min(arrInt.length, arrDou.length);
+        LinkList linkList = new LinkList();
+        for (int i = 0; i < length; i++) {
+            linkList.insertFirst(arrInt[i], arrDou[i]);
+        }
+        linkList.displayLinkList();
+        Link linkFind = linkList.find(keyFind);
+        if (linkFind != null) {
+            LogUtils.e("Found link with key " + linkFind.iData);
+        } else {
+            LogUtils.e("Can't find link " + linkFind.iData);
+        }
+        Link linkDelete = linkList.delete(keyDelete);
+        if (linkDelete != null) {
+            LogUtils.e("Deleted link with key " + linkDelete.iData);
+        } else {
+            LogUtils.e("Can't delete link " + linkDelete.iData);
+        }
+        linkList.displayLinkList();
+        while (!linkList.isEmpty()) {
+            Link link = linkList.deleteFirst();
+            link.displayLink();
+        }
+        linkList.displayLinkList();
+    }
 }

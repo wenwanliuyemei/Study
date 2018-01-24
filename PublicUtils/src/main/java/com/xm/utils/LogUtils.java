@@ -1,5 +1,6 @@
 package com.xm.utils;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -447,4 +448,7 @@ public class LogUtils {
 
     }
 
+    public static void logNull(Context context) {
+        LogUtils.e(context.getResources().getString(R.string.public_hint_null));
+    }
 }
