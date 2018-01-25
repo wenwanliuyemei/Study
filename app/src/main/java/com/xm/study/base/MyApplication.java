@@ -21,6 +21,9 @@ import java.util.List;
 
 import cn.jiajixin.nuwa.Nuwa;
 import com.xm.study.fix.nuwa.utils.*;
+
+import net.sqlcipher.database.SQLiteDatabase;
+
 /**
  * 作者：xm on 2017/1/3 11:25
  * 描述：
@@ -31,12 +34,13 @@ public class MyApplication extends Application {
     private final boolean isDebug = true;
     private static ApplicationObservable mApplicationObservable;
     public static PatchManager mPatchManager;
+    public static final String PASSWORD_DB = "gdhjydb";
 
     @Override
     public void onCreate() {
         super.onCreate();
         Log.e(TAG, "onCreate");
-
+        SQLiteDatabase.loadLibs(this);
 //        initEaseChat();
         initFresco();
         initCrashReport();

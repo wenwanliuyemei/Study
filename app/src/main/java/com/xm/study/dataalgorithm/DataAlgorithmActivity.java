@@ -11,6 +11,8 @@ import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
 import com.xm.study.dataalgorithm.presenter.DataAlgorithmPresenterCompl;
 import com.xm.study.dataalgorithm.presenter.IDataAlgorithmPresenter;
 import com.xm.study.dataalgorithm.view.IDataAlgorithmView;
+import com.xm.study.database.TextbookSettingDB;
+import com.xm.study.database.TextbookSettingDB2;
 import com.xm.utils.LogUtils;
 
 import butterknife.Bind;
@@ -58,6 +60,9 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
 
     private IDataAlgorithmPresenter iDataAlgorithmPresenter;
 
+    TextbookSettingDB textbookSettingDB;
+    TextbookSettingDB2 textbookSettingDB2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +70,9 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
         ButterKnife.bind(this);
 
         iDataAlgorithmPresenter = new DataAlgorithmPresenterCompl(this, this);
+
+        textbookSettingDB= new TextbookSettingDB(this);
+        textbookSettingDB2= new TextbookSettingDB2(this);
     }
 
     @Override
@@ -271,12 +279,15 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
         switch (view.getId()) {
             case R.id.tv_data_algorithm_insert_sort_1:
                 iDataAlgorithmPresenter.insertSort(new int[]{5, 3, 1, 7, 4, 8, 2});
+                textbookSettingDB.insert();
                 break;
             case R.id.tv_data_algorithm_bubble_sort_1:
                 iDataAlgorithmPresenter.bubbleSort1(new int[]{5, 3, 1, 7, 4, 8, 2});
+                LogUtils.e("sqlite","====="+textbookSettingDB.select());
                 break;
             case R.id.tv_data_algorithm_bubble_sort_2:
                 iDataAlgorithmPresenter.bubbleSort2(new int[]{5, 3, 1, 7, 4, 8, 2});
+                textbookSettingDB2.insert();
                 break;
             case R.id.tv_data_algorithm_quick_sort:
                 iDataAlgorithmPresenter.quickSort(new int[]{5, 3, 1, 7, 4, 8, 2});
