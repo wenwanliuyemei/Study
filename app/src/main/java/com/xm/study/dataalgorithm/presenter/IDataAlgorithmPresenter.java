@@ -80,4 +80,6 @@ public interface IDataAlgorithmPresenter {
 
     //LinkList
     void linkListTest(int[] arrInt, double[] arrDou, int keyFind, int keyDelete);
+
+    void doubleEndLinkListTest(int[] arrInt, double[] arrDou);
 }

@@ -290,6 +290,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
         iDataAlgorithmView.linkListTestDone();
     }
 
+    @Override
+    public void doubleEndLinkListTest(int[] arrInt, double[] arrDou) {
+        LinkedListUtils.doubleEndLinkListTest(context, arrInt, arrDou);
+        iDataAlgorithmView.doubleEndLinkListTestDone();
+    }
+
     private String iteratorList(List<List<Integer>> lists) {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < lists.size(); i++) {

@@ -80,4 +80,6 @@ public interface IDataAlgorithmView {
 
     //LinkList
     void linkListTestDone();
+
+    void doubleEndLinkListTestDone();
 }

@@ -255,6 +255,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
         LogUtils.e("linkListTestDone：");
     }
 
+    @Override
+    public void doubleEndLinkListTestDone() {
+        LogUtils.e("doubleEndLinkListTestDone：");
+    }
+
     @OnClick({R.id.tv_data_algorithm_insert_sort_1, R.id.tv_data_algorithm_bubble_sort_1,
             R.id.tv_data_algorithm_bubble_sort_2, R.id.tv_data_algorithm_quick_sort,
             R.id.tv_data_algorithm_selection_sort, R.id.tv_data_algorithm_shell_sort,
@@ -338,6 +343,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
 //                iDataAlgorithmPresenter.doTrans("(3+4)*5");//34+5*
                 iDataAlgorithmPresenter.doTrans("(3*(4+5)-6/(1+2)");//345+*612+/-
                 iDataAlgorithmPresenter.linkListTest(new int[]{22, 44, 66, 88}, new double[]{2.99, 4.99, 6.99, 8.99}, 44, 66);
+                iDataAlgorithmPresenter.doubleEndLinkListTest(new int[]{22, 44, 66, 88}, new double[]{2.99, 4.99, 6.99, 8.99, 9.99});
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{},new int[]{});
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5},new int[]{});
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5,6,7,8,9},new int[]{});

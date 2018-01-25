@@ -115,4 +115,29 @@ public class LinkedListUtils {
         }
         linkList.displayLinkList();
     }
+
+    public static void doubleEndLinkListTest(Context context, int[] arrInt, double[] arrDou) {
+        if (arrInt == null || arrInt.length < 1) {
+            LogUtils.logNull(context);
+            return;
+        }
+        if (arrDou == null || arrDou.length < 1) {
+            LogUtils.logNull(context);
+            return;
+        }
+        int length = Math.min(arrInt.length, arrDou.length);
+        DoubleEndLinkList doubleEndLinkList1 = new DoubleEndLinkList();
+        for (int i=0;i<length/2;i++){
+            doubleEndLinkList1.insertFirst(arrInt[i],arrDou[i]);
+        }
+        for (int i=length/2;i<length;i++){
+            doubleEndLinkList1.insertLast(arrInt[i],arrDou[i]);
+        }
+        doubleEndLinkList1.displayDoubleEndLinkList();
+        doubleEndLinkList1.deleteFirst();
+        doubleEndLinkList1.displayDoubleEndLinkList();
+        DoubleEndLinkList doubleEndLinkList2 = new DoubleEndLinkList();
+        doubleEndLinkList2.insertLast(arrInt[0],arrDou[0]);
+        doubleEndLinkList2.displayDoubleEndLinkList();
+    }
 }
