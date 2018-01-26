@@ -13,6 +13,8 @@ import com.xm.study.dataalgorithm.presenter.IDataAlgorithmPresenter;
 import com.xm.study.dataalgorithm.view.IDataAlgorithmView;
 import com.xm.study.database.TextbookSettingDB;
 import com.xm.study.database.TextbookSettingDB2;
+import com.xm.study.database.TextbookSettingDB3;
+import com.xm.study.database.TextbookSettingDB4;
 import com.xm.utils.LogUtils;
 
 import butterknife.Bind;
@@ -62,6 +64,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
 
     TextbookSettingDB textbookSettingDB;
     TextbookSettingDB2 textbookSettingDB2;
+    TextbookSettingDB4 textbookSettingDB4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
 
         textbookSettingDB= new TextbookSettingDB(this);
         textbookSettingDB2= new TextbookSettingDB2(this);
+        textbookSettingDB4=new TextbookSettingDB4(this);
     }
 
     @Override
@@ -283,7 +287,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 break;
             case R.id.tv_data_algorithm_bubble_sort_1:
                 iDataAlgorithmPresenter.bubbleSort1(new int[]{5, 3, 1, 7, 4, 8, 2});
-                LogUtils.e("sqlite","====="+textbookSettingDB.select());
+                LogUtils.e("sqlite","1====="+textbookSettingDB.select());
                 break;
             case R.id.tv_data_algorithm_bubble_sort_2:
                 iDataAlgorithmPresenter.bubbleSort2(new int[]{5, 3, 1, 7, 4, 8, 2});
@@ -291,9 +295,12 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 break;
             case R.id.tv_data_algorithm_quick_sort:
                 iDataAlgorithmPresenter.quickSort(new int[]{5, 3, 1, 7, 4, 8, 2});
+                textbookSettingDB4.insert("screeningcondition3.sql");
+                LogUtils.e("textbookSettingDB4","insert");
                 break;
             case R.id.tv_data_algorithm_selection_sort:
                 iDataAlgorithmPresenter.selectionSort(new int[]{5, 3, 1, 7, 4, 8, 2});
+                LogUtils.e("sqlite","4====="+textbookSettingDB4.select());
                 break;
             case R.id.tv_data_algorithm_shell_sort:
                 iDataAlgorithmPresenter.shellSort(new int[]{5, 3, 1, 7, 4, 8, 2});
