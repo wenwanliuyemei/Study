@@ -121,11 +121,11 @@ public class LinkedListUtils {
         for (int i=length/2;i<length;i++){
             firstLastLinkList1.insertLast(arrInt[i],arrDou[i]);
         }
-        firstLastLinkList1.displayDoubleEndLinkList();
+        firstLastLinkList1.displayFirstLastLinkList();
         firstLastLinkList1.deleteFirst();
-        firstLastLinkList1.displayDoubleEndLinkList();
+        firstLastLinkList1.displayFirstLastLinkList();
         FirstLastLinkList firstLastLinkList2 = new FirstLastLinkList();
         firstLastLinkList2.insertLast(arrInt[0],arrDou[0]);
-        firstLastLinkList2.displayDoubleEndLinkList();
+        firstLastLinkList2.displayFirstLastLinkList();
     }
 }

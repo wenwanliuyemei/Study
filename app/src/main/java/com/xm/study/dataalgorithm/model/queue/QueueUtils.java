@@ -1,6 +1,10 @@
 package com.xm.study.dataalgorithm.model.queue;
 
 
+import android.content.Context;
+
+import com.xm.study.dataalgorithm.model.list.LinkListDatasTest;
+import com.xm.study.dataalgorithm.model.list.LinkQueue;
 import com.xm.utils.LogUtils;
 
 /**
@@ -55,5 +59,20 @@ public class QueueUtils {
             long item = queuePriority.remove();
             LogUtils.e("QueueUtils--queuePriorityTest:", item + "");
         }
+    }
+
+    public static void linkQueueTest(Context context, int[] arrInt, double[] arrDou) {
+        LinkListDatasTest linkListDatasTest = new LinkListDatasTest(context, arrInt, arrDou).invoke();
+        if (linkListDatasTest.is()) return;
+        int length = linkListDatasTest.getLength();
+        LinkQueue linkQueue = new LinkQueue();
+        for (int i = 0; i < length; i++) {
+            linkQueue.insert(arrInt[i], arrDou[i]);
+        }
+        linkQueue.dispalyQueue();
+        for (int i = 0; i < length / 2; i++) {
+            linkQueue.remove();
+        }
+        linkQueue.dispalyQueue();
     }
 }

@@ -276,6 +276,8 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     public void linkStackTest(int[] arrInt, double[] arrDou) {
         StackUtils.linkStackTest(context, arrInt, arrDou);
         iDataAlgorithmView.linkStackTestDone();
+        QueueUtils.linkQueueTest(context, arrInt, arrDou);
+        iDataAlgorithmView.linkQueueTestDone();
     }
 
     @Override
@@ -288,6 +290,11 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     public void queuePriorityTest(long[] arr) {
         QueueUtils.queuePriorityTest(arr);
         iDataAlgorithmView.queuePriorityTestDone();
+    }
+
+    @Override
+    public void linkQueueTest(int[] arrInt, double[] arrDou) {
+
     }
 
     @Override

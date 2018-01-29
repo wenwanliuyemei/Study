@@ -80,6 +80,8 @@ public interface IDataAlgorithmView {
 
     void queuePriorityTestDone();
 
+    void linkQueueTestDone();
+
     //LinkList
     void linkListTestDone();
 

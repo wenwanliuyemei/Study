@@ -52,7 +52,7 @@ public class FirstLastLinkList {
         return temp;
     }
 
-    public void displayDoubleEndLinkList() {
+    public void displayFirstLastLinkList() {
         LogUtils.e("FirstLastLinkList(first-->last):");
         Link current = first;
         while (current != null) {

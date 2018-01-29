@@ -1,4 +1,4 @@
-package com.xm.study.dataalgorithm.model.stack;
+package com.xm.study.dataalgorithm.model.list;
 
 import com.xm.study.dataalgorithm.model.list.Link;
 import com.xm.study.dataalgorithm.model.list.LinkList;
@@ -6,7 +6,7 @@ import com.xm.utils.LogUtils;
 
 /**
  * @author: xm on 2018/1/29.
- * @describe:
+ * @describe: 用链表实现栈
  */
 
 public class LinkStack {

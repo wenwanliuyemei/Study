@@ -80,6 +80,8 @@ public interface IDataAlgorithmPresenter {
 
     void queuePriorityTest(long[] arr);
 
+    void linkQueueTest(int[] arrInt, double[] arrDou);
+
     //LinkList
     void linkListTest(int[] arrInt, double[] arrDou, int keyFind, int keyDelete);
 

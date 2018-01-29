@@ -268,6 +268,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void linkQueueTestDone() {
+        LogUtils.e("linkQueueTestDone");
+    }
+
+    @Override
     public void linkListTestDone() {
         LogUtils.e("linkListTestDone：");
     }
