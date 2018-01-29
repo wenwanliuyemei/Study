@@ -3,7 +3,7 @@ package com.xm.study.dataalgorithm.presenter;
 import android.content.Context;
 
 import com.xm.study.dataalgorithm.model.queue.QueueUtils;
-import com.xm.study.dataalgorithm.model.stack.StackXArrayUtils;
+import com.xm.study.dataalgorithm.model.stack.StackUtils;
 import com.xm.study.dataalgorithm.model.string.StringUtils;
 import com.xm.study.dataalgorithm.model.list.ListNode;
 import com.xm.study.dataalgorithm.model.bintree.BinTreeNode;
@@ -249,12 +249,12 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
 
     @Override
     public void doReverser(String in) {
-        iDataAlgorithmView.doReverserDone(StackXArrayUtils.doReverser(in));
+        iDataAlgorithmView.doReverserDone(StackUtils.doReverser(in));
     }
 
     @Override
     public void bracketChecker(String in) {
-        StackXArrayUtils.bracketChecker(in);
+        StackUtils.bracketChecker(in);
         iDataAlgorithmView.bracketCheckerDone();
 
     }
@@ -262,14 +262,20 @@ public class DataAlgorithmPresenterCompl implements IDataAlgorithmPresenter {
     @Override
     public void doTrans(String in) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(StackXArrayUtils.doTrans(in));
+        stringBuffer.append(StackUtils.doTrans(in));
         iDataAlgorithmView.doTransDone(stringBuffer.toString());
         doParse(stringBuffer.toString());
     }
 
     @Override
     public void doParse(String in) {
-        iDataAlgorithmView.doParseDone(StackXArrayUtils.doParse(in));
+        iDataAlgorithmView.doParseDone(StackUtils.doParse(in));
+    }
+
+    @Override
+    public void linkStackTest(int[] arrInt, double[] arrDou) {
+        StackUtils.linkStackTest(context, arrInt, arrDou);
+        iDataAlgorithmView.linkStackTestDone();
     }
 
     @Override

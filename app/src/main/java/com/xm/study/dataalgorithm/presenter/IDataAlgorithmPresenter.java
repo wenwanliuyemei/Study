@@ -73,6 +73,8 @@ public interface IDataAlgorithmPresenter {
 
     void doParse(String in);
 
+    void linkStackTest(int[] arrInt, double[] arrDou);
+
     //queue
     void queueTest(long[] arr1, long[] arr2);
 

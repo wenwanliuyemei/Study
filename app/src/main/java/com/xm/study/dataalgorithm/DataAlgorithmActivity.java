@@ -74,9 +74,9 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
 
         iDataAlgorithmPresenter = new DataAlgorithmPresenterCompl(this, this);
 
-        textbookSettingDB= new TextbookSettingDB(this);
-        textbookSettingDB2= new TextbookSettingDB2(this);
-        textbookSettingDB4=new TextbookSettingDB4(this);
+        textbookSettingDB = new TextbookSettingDB(this);
+        textbookSettingDB2 = new TextbookSettingDB2(this);
+        textbookSettingDB4 = new TextbookSettingDB4(this);
     }
 
     @Override
@@ -253,6 +253,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
     }
 
     @Override
+    public void linkStackTestDone() {
+        LogUtils.e("linkStackTestDone");
+    }
+
+    @Override
     public void queueTestDone() {
         LogUtils.e(TAG, "queueTestDone：");
     }
@@ -287,7 +292,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
                 break;
             case R.id.tv_data_algorithm_bubble_sort_1:
                 iDataAlgorithmPresenter.bubbleSort1(new int[]{5, 3, 1, 7, 4, 8, 2});
-                LogUtils.e("sqlite","1====="+textbookSettingDB.select());
+                LogUtils.e("sqlite", "1=====" + textbookSettingDB.select());
                 break;
             case R.id.tv_data_algorithm_bubble_sort_2:
                 iDataAlgorithmPresenter.bubbleSort2(new int[]{5, 3, 1, 7, 4, 8, 2});
@@ -296,11 +301,11 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
             case R.id.tv_data_algorithm_quick_sort:
                 iDataAlgorithmPresenter.quickSort(new int[]{5, 3, 1, 7, 4, 8, 2});
                 textbookSettingDB4.insert("screeningcondition3.sql");
-                LogUtils.e("textbookSettingDB4","insert");
+                LogUtils.e("textbookSettingDB4", "insert");
                 break;
             case R.id.tv_data_algorithm_selection_sort:
                 iDataAlgorithmPresenter.selectionSort(new int[]{5, 3, 1, 7, 4, 8, 2});
-                LogUtils.e("sqlite","4====="+textbookSettingDB4.select());
+                LogUtils.e("sqlite", "4=====" + textbookSettingDB4.select());
                 break;
             case R.id.tv_data_algorithm_shell_sort:
                 iDataAlgorithmPresenter.shellSort(new int[]{5, 3, 1, 7, 4, 8, 2});
@@ -366,6 +371,7 @@ public class DataAlgorithmActivity extends BaseActivity implements IDataAlgorith
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5},new int[]{});
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5,6,7,8,9},new int[]{});
 //                iDataAlgorithmPresenter.findMedianSortedArrays(new int[]{1,2,3,4,5,6,7,8,9},new int[]{1,2,3,4,5,6});
+                iDataAlgorithmPresenter.linkStackTest(new int[]{22, 44, 66, 88}, new double[]{2.99, 4.99, 6.99, 8.99, 9.99});
                 break;
         }
     }

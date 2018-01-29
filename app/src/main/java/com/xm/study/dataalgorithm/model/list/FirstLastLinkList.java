@@ -7,12 +7,12 @@ import com.xm.utils.LogUtils;
  * @describe: 双端链表，对最后一个结点的引用，就如对第一个结点的引用
  */
 
-public class DoubleEndLinkList {
+public class FirstLastLinkList {
 
     private Link first;
     private Link last;
 
-    public DoubleEndLinkList() {
+    public FirstLastLinkList() {
         first = null;
         last = null;
     }
@@ -53,7 +53,7 @@ public class DoubleEndLinkList {
     }
 
     public void displayDoubleEndLinkList() {
-        LogUtils.e("DoubleEndLinkList(first-->last):");
+        LogUtils.e("FirstLastLinkList(first-->last):");
         Link current = first;
         while (current != null) {
             current.displayLink();

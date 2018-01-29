@@ -1,5 +1,8 @@
 package com.xm.study.dataalgorithm.model.stack;
 
+import android.content.Context;
+
+import com.xm.study.dataalgorithm.model.list.LinkListDatasTest;
 import com.xm.utils.LogUtils;
 
 /**
@@ -7,7 +10,7 @@ import com.xm.utils.LogUtils;
  * @describe:
  */
 
-public class StackXArrayUtils {
+public class StackUtils {
 
     public static String doReverser(String in) {
         int stackSize = in.length();
@@ -44,17 +47,17 @@ public class StackXArrayUtils {
                         if ((ch == '}' && chx != '{') ||
                                 (ch == ']' && chx != '[') ||
                                 (ch == ')' && chx != '(')) {
-                            LogUtils.e("StackXArrayUtils:bracketChecker", "Error: " + ch + " at " + i + " ,no match");
+                            LogUtils.e("StackUtils:bracketChecker", "Error: " + ch + " at " + i + " ,no match");
                         } else {
                         }
                     } else {
-                        LogUtils.e("StackXArrayUtils:bracketChecker", "Error: " + ch + " at " + i + " ,stackXArray is empty");
+                        LogUtils.e("StackUtils:bracketChecker", "Error: " + ch + " at " + i + " ,stackXArray is empty");
                     }
                     break;
             }
         }
         if (!stackXArray.isEmpty()) {
-            LogUtils.e("StackXArrayUtils:bracketChecker", "Error: missing right delimiter");
+            LogUtils.e("StackUtils:bracketChecker", "Error: missing right delimiter");
         }
     }
 
@@ -66,7 +69,7 @@ public class StackXArrayUtils {
      */
     public static String doTrans(String input) {
         if (input == null || input.length() == 0) {
-            LogUtils.e("StackXArrayUtils--doTrans:", "input is null ,or length is 0.");
+            LogUtils.e("StackUtils--doTrans:", "input is null ,or length is 0.");
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
@@ -158,7 +161,7 @@ public class StackXArrayUtils {
 
     public static int doParse(String input) {
         if (input == null || input.length() == 0) {
-            LogUtils.e("StackXArrayUtils--doParse:", "input is null ,or length is 0.");
+            LogUtils.e("StackUtils--doParse:", "input is null ,or length is 0.");
             return (int) Double.NEGATIVE_INFINITY;
         }
         StackXArray<Integer> stackXArray = new StackXArray<Integer>(Integer.class, input.length());
@@ -190,11 +193,26 @@ public class StackXArrayUtils {
                         interAns = 0;
                 }
                 stackXArray.push(interAns);
-            }else{
+            } else {
 
             }
         }
         interAns = stackXArray.pop();
         return interAns;
+    }
+
+    public static void linkStackTest(Context context, int[] arrInt, double[] arrDou) {
+        LinkListDatasTest linkListDatasTest = new LinkListDatasTest(context, arrInt, arrDou).invoke();
+        if (linkListDatasTest.is()) return;
+        int length = linkListDatasTest.getLength();
+        LinkStack linkStack = new LinkStack();
+        for (int i = 0; i < length; i++) {
+            linkStack.push(arrInt[i], arrDou[i]);
+        }
+        linkStack.displayLinkStack();
+        for (int i = 0; i < length / 2; i++) {
+            linkStack.pop();
+        }
+        linkStack.displayLinkStack();
     }
 }

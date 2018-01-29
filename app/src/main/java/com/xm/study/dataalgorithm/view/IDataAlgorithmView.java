@@ -73,6 +73,8 @@ public interface IDataAlgorithmView {
 
     void doParseDone(int result);
 
+    void linkStackTestDone();
+
     //queue
     void queueTestDone();
 
