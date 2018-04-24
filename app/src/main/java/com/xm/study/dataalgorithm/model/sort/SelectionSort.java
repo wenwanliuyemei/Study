@@ -27,9 +27,9 @@ public class SelectionSort {
     public int[] selectionSort(int arrInt[]) {
         int temp;
         Log.e(TAG, "selectionSort--排序前--arrInt=" + Arrays.toString(arrInt));
-        for (int i = 0; i < arrInt.length; i++) {
+        for (int i = 0; i < arrInt.length; i++) {//第一个位置、第二个位置等
             Log.e(TAG, "selectionSort--外循环--排序前--i=" + i + ",arrInt=" + Arrays.toString(arrInt));
-            for (int j = i + 1; j < arrInt.length; j++) {
+            for (int j = i + 1; j < arrInt.length; j++) {//只要比前一个小，交换
                 Log.e(TAG, "selectionSort--内循环--排序前--i=" + i + ",j=" + j + ",arrInt=" + Arrays.toString(arrInt));
                 if (arrInt[i] > arrInt[j]) {
                     temp = arrInt[i];

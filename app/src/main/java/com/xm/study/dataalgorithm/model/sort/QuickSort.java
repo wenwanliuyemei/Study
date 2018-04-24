@@ -49,6 +49,15 @@ public class QuickSort {
 
     /**
      * 得到中间值
+     * low<high的情况下：
+     * [high]>=temp，high左移，反之[high]换到[low]处。
+     * [low]<=temp，low右移；反之[low]换到[high]处。
+     * 最后[low]=temp
+     *
+     * @param array
+     * @param low
+     * @param high
+     * @return
      */
     private int getMiddle(int[] array, int low, int high) {
         int tmp = array[low];

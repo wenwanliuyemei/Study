@@ -27,7 +27,7 @@ public class InsertSort {
 
     public int[] insertSort(int[] arrInt) {
 
-        int i = 0, j = 0;
+        int i = 0, j = 0;//i：已排序的length。j：已排序的最后一个元素的下标。
         int insertNote;//要插入的数据
         int[] arrTemp = arrInt;
         //从数组的第二个元素开始循环，将数组中的元素插入
