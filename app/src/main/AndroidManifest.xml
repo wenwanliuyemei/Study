@@ -189,6 +189,8 @@
                 <action android:name="components.service.ByBroadcast" />
             </intent-filter>
         </service>
+
+        <activity android:name=".customview.CustomViewActivity" />
     </application>
 
 </manifest>

@@ -46,4 +46,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/dp_20</item>
     </style>
+
+    <declare-styleable name="CustomCircleView">
+        <attr name="default_size" format="dimension" />
+    </declare-styleable>
 </resources>

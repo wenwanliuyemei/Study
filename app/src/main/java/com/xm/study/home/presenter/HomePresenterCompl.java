@@ -12,6 +12,7 @@ import com.xm.study.R;
 import com.xm.study.cardview.CardViewActivity;
 import com.xm.study.components.FourComponentsActivity;
 import com.xm.study.crashreport.CrashReportActivity;
+import com.xm.study.customview.CustomViewActivity;
 import com.xm.study.dataalgorithm.DataAlgorithmActivity;
 import com.xm.study.datastructure.DataStructureActivity;
 import com.xm.study.dynamic1.DynamicActivity;
@@ -55,6 +56,7 @@ public class HomePresenterCompl implements IHomePresenter {
 
     static {
         mActivityHolder = new ActivityHolder();
+        mActivityHolder.addActivity("CustomViewActivity", CustomViewActivity.class);
         mActivityHolder.addActivity("FourComponentsActivity", FourComponentsActivity.class);
         mActivityHolder.addActivity("KeepAliveActivity", KeepAliveActivity.class);
         mActivityHolder.addActivity("TestReflectActivity", TestReflectActivity.class);
