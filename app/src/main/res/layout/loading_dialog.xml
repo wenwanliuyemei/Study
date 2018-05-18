@@ -18,7 +18,7 @@
         android:id="@+id/img"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:src="@mipmap/alert_dialog_icon" />
+        android:src="@mipmap/alert_dialog_icon_2" />
 
     <TextView
         android:id="@+id/tipTextView"
