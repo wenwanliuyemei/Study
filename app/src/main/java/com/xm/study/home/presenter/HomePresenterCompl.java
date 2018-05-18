@@ -44,6 +44,7 @@ import com.xm.study.screenadaptation.ScreenAdaptationActivity;
 import com.xm.study.staticmethod.StaticMethodActivity;
 import com.xm.study.thread.ThreadActivity;
 import com.xm.study.upwardtransiton.UpwardTransitonActivity;
+import com.xm.study.widget.WidgetActivity;
 
 /**
  * 作者：xm on 2017/1/3 11:33
@@ -57,6 +58,7 @@ public class HomePresenterCompl implements IHomePresenter {
 
     static {
         mActivityHolder = new ActivityHolder();
+        mActivityHolder.addActivity("WidgetActivity", WidgetActivity.class);
         mActivityHolder.addActivity("ImplicitStartActivity", ImplicitStartActivity.class);
         mActivityHolder.addActivity("CustomViewActivity", CustomViewActivity.class);
         mActivityHolder.addActivity("FourComponentsActivity", FourComponentsActivity.class);
