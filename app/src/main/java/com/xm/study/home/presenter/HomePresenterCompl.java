@@ -15,10 +15,10 @@ import com.xm.study.crashreport.CrashReportActivity;
 import com.xm.study.customview.CustomViewActivity;
 import com.xm.study.dataalgorithm.DataAlgorithmActivity;
 import com.xm.study.datastructure.DataStructureActivity;
-import com.xm.study.dynamic1.DynamicActivity;
-import com.xm.study.encode.EncodeActivity;
 import com.xm.study.downlaod.DownloadActivity;
+import com.xm.study.dynamic1.DynamicActivity;
 import com.xm.study.easechat.login.ECLoginActivity;
+import com.xm.study.encode.EncodeActivity;
 import com.xm.study.fastjson.FastJsonActivity;
 import com.xm.study.fix.andfix.AndFixActivity;
 import com.xm.study.fragment.FragmentTestActivity;
@@ -31,6 +31,7 @@ import com.xm.study.implicitstart.ImplicitStartActivity;
 import com.xm.study.keepalive.KeepAliveActivity;
 import com.xm.study.linechart.LineChartActivity;
 import com.xm.study.lvheadfixed.LVHeadFixedActivity;
+import com.xm.study.ndk.NDKTestActivity;
 import com.xm.study.notification.NotificationActivity;
 import com.xm.study.okhttp.OkHttpActivity;
 import com.xm.study.okhttp2.OkHttp2Activity;
@@ -58,6 +59,7 @@ public class HomePresenterCompl implements IHomePresenter {
 
     static {
         mActivityHolder = new ActivityHolder();
+        mActivityHolder.addActivity("NDKTestActivity", NDKTestActivity.class);
         mActivityHolder.addActivity("WidgetActivity", WidgetActivity.class);
         mActivityHolder.addActivity("ImplicitStartActivity", ImplicitStartActivity.class);
         mActivityHolder.addActivity("CustomViewActivity", CustomViewActivity.class);

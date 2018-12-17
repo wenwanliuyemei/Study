@@ -225,7 +225,7 @@
                 <category android:name="category.xm.two.a" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".ndk.NDKTestActivity"></activity>
     </application>
 
 </manifest>
