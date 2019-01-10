@@ -181,5 +181,8 @@
     <string name="fragment_test_has_param_more_2">  参数2=</string>
 
     <string name="four_components_by_binder">by_binder</string>
+    <string name="ndk_type_face_Bold">自定义字体  Roboto-Bold 一般情况下，我们更希望使用的是标准的 android:textStyle 而不是用一个自定义的属性 customfont:textStyle 。但是像上面这样的属性直接放上去肯定是不能生效的，还需要再加一些代码才行。</string>
+    <string name="ndk_type_face_Medium">自定义字体  Roboto-Medium 一般情况下，我们更希望使用的是标准的 android:textStyle 而不是用一个自定义的属性 customfont:textStyle 。但是像上面这样的属性直接放上去肯定是不能生效的，还需要再加一些代码才行。</string>
+    <string name="ndk_type_face_Regular">自定义字体  Roboto-Regular 一般情况下，我们更希望使用的是标准的 android:textStyle 而不是用一个自定义的属性 customfont:textStyle 。但是像上面这样的属性直接放上去肯定是不能生效的，还需要再加一些代码才行。</string>
 
 </resources>

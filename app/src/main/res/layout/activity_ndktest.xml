@@ -1,15 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ndk.NDKTestActivity">
 
 
     <TextView
         android:id="@+id/tv_test"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
         android:gravity="center"
         android:text="@string/app_name" />
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_test_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:gravity="center"
+        android:text="@string/refelect_reflect"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tv_test_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:gravity="center"
+        android:text="@string/ndk_type_face_Bold" />
+
+
+    <TextView
+        android:id="@+id/tv_test_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:gravity="center"
+        android:text="@string/ndk_type_face_Medium" />
+
+    <TextView
+        android:id="@+id/tv_test_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:gravity="center"
+        android:text="@string/ndk_type_face_Regular" />
+</LinearLayout>

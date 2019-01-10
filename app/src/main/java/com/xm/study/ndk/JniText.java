@@ -7,4 +7,6 @@ public class JniText {
     }
 
     public native String getCLangString();
+
+    public native String getCLangString2();
 }
