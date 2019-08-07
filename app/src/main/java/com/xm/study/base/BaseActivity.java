@@ -25,6 +25,7 @@ public class BaseActivity extends AppCompatActivity implements IView, View.OnCli
         super.onCreate(savedInstanceState);
         mMyApplication= (MyApplication) this.getApplication();
         mMyApplication.getmApplicationObservable().addObserver(this);
+        LogUtils.e(TAG,"a1---1");
     }
 
 
