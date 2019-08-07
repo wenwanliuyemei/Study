@@ -31,6 +31,10 @@ public class BaseActivity extends AppCompatActivity implements IView, View.OnCli
         LogUtils.e(TAG,"master--2");
         LogUtils.e(TAG,"master--3");
         LogUtils.e(TAG,"master--4");
+        LogUtils.e(TAG,"master--5");
+        LogUtils.e(TAG,"master--6");
+        LogUtils.e(TAG,"master--7");
+        LogUtils.e(TAG,"master--8");
     }
 
 
