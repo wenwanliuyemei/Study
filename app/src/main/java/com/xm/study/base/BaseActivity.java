@@ -67,6 +67,8 @@ public class BaseActivity extends AppCompatActivity implements IView, View.OnCli
 
         LogUtils.e(TAG,"a1---D");
         LogUtils.e(TAG,"a1---E");
+
+        LogUtils.e(TAG,"a1---9");
     }
 
     @Override
