@@ -59,6 +59,8 @@ public class BaseActivity extends AppCompatActivity implements IView, View.OnCli
             LogUtils.e(TAG,"observable.countObservers()==0");
             CookieUtils.clearCookies(BaseActivity.this);
         }
+
+        LogUtils.e(TAG,"a1---D");
     }
 
     @Override
